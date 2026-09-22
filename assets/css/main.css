@@ -1,0 +1,13 @@
+body {
+  font-family: 'Onest', sans-serif;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Onest', sans-serif;
+}
+
+.texture-bg {
+  background-image: url('../img/texture-bg.png');
+  background-size: cover;
+  background-position: center;
+}
