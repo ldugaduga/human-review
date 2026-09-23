@@ -157,8 +157,9 @@ class Human_Review_Faq_Widget extends Widget_Base {
 			$section_class = '';
 			$section_style = 'background-color: ' . $bg_color . ';';
 		} else {
+			// Inline so Elementor's atomic styles can't strip the background image.
 			$section_class = 'bg-[#F9FAFB]';
-			$section_style = '';
+			$section_style = 'background-color: #F9FAFB; background-image: url(' . HUMAN_REVIEW_WIDGETS_URL . '/assets/img/texture-bg.png); background-size: cover; background-position: center;';
 		}
 		?>
 		<section class="<?php echo esc_attr( $section_class ); ?>"<?php echo $section_style ? ' style="' . esc_attr( $section_style ) . '"' : ''; ?>>
