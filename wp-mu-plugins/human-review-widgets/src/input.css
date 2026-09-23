@@ -16,6 +16,28 @@ h1, h2, h3, .font-display {
   background-position: center;
 }
 
+/*
+ * Header widget: fixed to the top of the viewport. Push it below the WP
+ * admin bar when logged in (32px desktop, 46px at <=782px, matching core),
+ * and keep it in normal flow inside the Elementor editor so it doesn't
+ * float over the widgets being edited.
+ */
+.admin-bar .hr-header {
+  top: 32px;
+}
+@media screen and (max-width: 782px) {
+  .admin-bar .hr-header {
+    top: 46px;
+  }
+}
+.elementor-editor-active .hr-header {
+  position: relative;
+  top: 0;
+}
+.elementor-editor-active .hr-header-spacer {
+  display: none;
+}
+
 /* Contact widget: "Trusted by" logo marquee (track holds two copies, so -50% loops seamlessly) */
 @keyframes hr-marquee {
   from { transform: translateX(0); }
@@ -188,4 +210,54 @@ h1, h2, h3, .font-display {
   width: 16px;
   height: 16px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 10.5L8.5 14L15 6' stroke='%23FF6D18' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/*
+ * Contact widget: validation states. Inline errors come from main.js
+ * (.hr-field-invalid / .hr-field-error); Elementor Pro's own server-side
+ * errors use .elementor-error, and its form-level result is .elementor-message.
+ * !important is needed to beat the field border rules above.
+ */
+.hr-contact-form .hr-field-invalid input,
+.hr-contact-form .hr-field-invalid textarea,
+.hr-contact-form .hr-field-invalid select,
+.hr-contact-form .elementor-error input,
+.hr-contact-form .elementor-error textarea,
+.hr-contact-form .elementor-error select {
+  border-color: #DC2626 !important;
+}
+.hr-contact-form .hr-field-invalid input:focus,
+.hr-contact-form .hr-field-invalid textarea:focus,
+.hr-contact-form .hr-field-invalid select:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important;
+}
+.hr-contact-form .hr-field-error,
+.hr-contact-form .elementor-error .elementor-message {
+  display: block !important;
+  margin-top: 6px !important;
+  font-family: 'Onest', sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  color: #DC2626 !important;
+}
+.hr-contact-form form > .elementor-message {
+  margin: 0 !important;
+  padding: 12px 14px !important;
+  border-radius: 8px !important;
+  font-family: 'Onest', sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+.hr-contact-form form > .elementor-message:before {
+  display: none !important;
+}
+.hr-contact-form form > .elementor-message-success {
+  background: #F0FAF5 !important;
+  border: 1px solid #CCEBDC !important;
+  color: #147A4F !important;
+}
+.hr-contact-form form > .elementor-message-danger {
+  background: #FEF2F2 !important;
+  border: 1px solid #FECACA !important;
+  color: #B91C1C !important;
 }

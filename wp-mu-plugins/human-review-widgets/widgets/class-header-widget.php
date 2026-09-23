@@ -155,8 +155,10 @@ class Human_Review_Header_Widget extends Widget_Base {
 		$logo_href = ! empty( $settings['logo_link']['url'] ) ? $settings['logo_link']['url'] : home_url( '/' );
 		$nav_items = ! empty( $settings['nav_items'] ) ? $settings['nav_items'] : array();
 		?>
-		<header class="w-full bg-[#F9FAFB] backdrop-blur-[6px] border-b border-[#F3F4F6] hr-header">
-			<div class="max-w-[1280px] mx-auto flex items-center justify-between px-6 lg:px-0 py-5">
+		<!-- spacer holds the fixed header's height (72px bar + 1px border) so page content starts below it -->
+		<div class="hr-header-spacer h-[73px]" aria-hidden="true"></div>
+		<header class="hr-header fixed top-0 inset-x-0 z-50 w-full bg-[#F9FAFB] backdrop-blur-[6px] border-b border-[#F3F4F6]">
+			<div class="max-w-[1280px] h-[72px] mx-auto flex items-center justify-between px-6 lg:px-0">
 				<a href="<?php echo esc_url( $logo_href ); ?>" class="flex items-center gap-2 shrink-0">
 					<img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="h-7 w-auto" />
 				</a>
@@ -178,7 +180,7 @@ class Human_Review_Header_Widget extends Widget_Base {
 				</div>
 			</div>
 
-			<div class="hr-mobile-menu hidden nav:hidden border-t border-ink/10 bg-white">
+			<div class="hr-mobile-menu hidden nav:hidden max-h-[calc(100vh-73px)] overflow-y-auto border-t border-ink/10 bg-white">
 				<nav class="px-6 py-4 flex flex-col text-[16px] font-medium text-[#0F172A]">
 					<?php foreach ( $nav_items as $item ) : ?>
 						<a href="<?php echo esc_url( $item['link']['url'] ); ?>" class="block px-2 py-2.5 rounded-lg <?php echo ( 'yes' === $item['is_active'] ) ? 'bg-ink/5 text-orange' : 'hover:bg-ink/5 hover:text-orange transition'; ?>"><?php echo esc_html( $item['label'] ); ?></a>

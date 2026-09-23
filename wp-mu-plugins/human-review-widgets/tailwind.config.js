@@ -20,7 +20,7 @@ module.exports = {
         // Dedicated breakpoint for the header's desktop-nav/hamburger
         // toggle, separate from Tailwind's shared `md` (768px) used
         // elsewhere for unrelated layouts (e.g. the team grid).
-        nav: '770px',
+        nav: '880px',
       },
     },
   },
