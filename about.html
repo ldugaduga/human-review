@@ -155,14 +155,39 @@
         <p class="text-[#0F172A] text-[18px] leading-[28px]">Our core team is dedicated to building the world's most trusted supply of human feedback.</p>
       </div>
 
-      <div class="flex flex-col gap-3 mb-5">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Mobile/tablet: photo + name/role together, in reading order -->
+      <div class="grid grid-cols-2 gap-5 mb-5 lg:hidden">
+        <div>
+          <img src="assets/img/teams/alex-1.jpg" alt="Alex Rivera" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] mb-4" />
+          <h3 class="font-display font-semibold text-[22px] leading-[25px] text-[#0F172A] mb-1">Alex Rivera</h3>
+          <p class="text-[#6B7280] text-[16px] leading-[26px]">Founder &amp; CEO</p>
+        </div>
+        <div>
+          <img src="assets/img/teams/sarah-01.jpg" alt="Sarah Jenkins" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] mb-4" />
+          <h3 class="font-display font-semibold text-[22px] leading-[25px] text-[#0F172A] mb-1">Sarah Jenkins</h3>
+          <p class="text-[#6B7280] text-[16px] leading-[26px]">Head of Research</p>
+        </div>
+        <div>
+          <img src="assets/img/teams/marcus-01.jpg" alt="Marcus Thorne" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] mb-4" />
+          <h3 class="font-display font-semibold text-[22px] leading-[25px] text-[#0F172A] mb-1">Marcus Thorne</h3>
+          <p class="text-[#6B7280] text-[16px] leading-[26px]">Director of Trust &amp; Safety</p>
+        </div>
+        <div>
+          <img src="assets/img/teams/elena-01.jpg" alt="Elena Vance" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] mb-4" />
+          <h3 class="font-display font-semibold text-[22px] leading-[25px] text-[#0F172A] mb-1">Elena Vance</h3>
+          <p class="text-[#6B7280] text-[16px] leading-[26px]">Head of Network</p>
+        </div>
+      </div>
+
+      <!-- Desktop: split photo row + name/role row, per Figma -->
+      <div class="hidden lg:flex lg:flex-col gap-3 mb-5">
+        <div class="grid grid-cols-4 gap-5">
           <img src="assets/img/teams/alex-1.jpg" alt="Alex Rivera" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)]" />
           <img src="assets/img/teams/sarah-01.jpg" alt="Sarah Jenkins" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)]" />
           <img src="assets/img/teams/marcus-01.jpg" alt="Marcus Thorne" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)]" />
           <img src="assets/img/teams/elena-01.jpg" alt="Elena Vance" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)]" />
         </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="grid grid-cols-4 gap-5">
           <div class="bg-white border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-2xl px-6 py-5">
             <h3 class="font-display font-semibold text-[22px] leading-[25px] text-[#0F172A] mb-2.5">Alex Rivera</h3>
             <p class="text-[#6B7280] text-[16px] leading-[26px]">Founder &amp; CEO</p>
@@ -189,11 +214,11 @@
         </div>
         <div class="flex items-center gap-4 sm:gap-[15px] shrink-0">
           <div class="flex flex-col gap-2">
-            <p class="font-display font-medium text-orange text-[48px] leading-[48px]">12k+</p>
+            <p class="js-counter font-display font-medium text-orange text-[48px] leading-[48px]">12k+</p>
             <p class="text-white text-[14px] leading-[28px] uppercase">Verified People</p>
           </div>
           <div class="flex flex-col gap-2">
-            <p class="font-display font-medium text-orange text-[48px] leading-[48px]">24h</p>
+            <p class="js-counter font-display font-medium text-orange text-[48px] leading-[48px]">24h</p>
             <p class="text-white text-[14px] leading-[28px] uppercase">Avg. Turnaround</p>
           </div>
         </div>
@@ -321,6 +346,41 @@
       window.addEventListener('resize', () => {
         if (window.innerWidth >= 768) closeMenu();
       });
+    })();
+
+    // Count-up animation for stat numbers (e.g. "12k+", "24h") when scrolled into view.
+    (function () {
+      const counters = document.querySelectorAll('.js-counter');
+      if (!counters.length) return;
+
+      function animate(el) {
+        const match = el.textContent.trim().match(/^(\d+)(.*)$/);
+        if (!match) return;
+        const target = parseInt(match[1], 10);
+        const suffix = match[2];
+        const duration = 1400;
+        const start = performance.now();
+
+        function step(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(step);
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      counters.forEach((el) => observer.observe(el));
     })();
   </script>
 

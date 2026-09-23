@@ -130,11 +130,16 @@ class Human_Review_Hero_Widget extends Widget_Base {
 					</a>
 				</div>
 
-				<div class="flex justify-center lg:justify-end w-full max-w-[520px] h-[520px] isolate xl:translate-x-6">
-					<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $settings['image_alt'] ); ?>" class="w-full h-full object-contain" style="margin-right: -100px;" />
+				<div class="flex justify-center lg:justify-end w-full max-w-[520px] h-[520px] isolate">
+					<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $settings['image_alt'] ); ?>" class="hr-hero-map-img w-full h-full object-contain" />
 				</div>
 			</div>
 		</section>
+		<style>
+			@media (min-width: 1280px) {
+				.hr-hero-map-img { margin-right: -100px; }
+			}
+		</style>
 		<?php
 	}
 }

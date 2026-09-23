@@ -188,15 +188,29 @@ class Human_Review_Team_Widget extends Widget_Base {
 					<p class="text-[#0F172A] text-[18px] leading-[28px]"><?php echo esc_html( $settings['subheading'] ); ?></p>
 				</div>
 
-				<div class="flex flex-col gap-3 mb-5">
-					<div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+				<!-- Mobile/tablet: photo + name/role together, in reading order -->
+				<div class="grid grid-cols-2 gap-5 mb-5 lg:hidden">
+					<?php foreach ( $settings['members'] as $member ) : ?>
+						<div>
+							<?php if ( ! empty( $member['photo']['url'] ) ) : ?>
+								<img src="<?php echo esc_url( $member['photo']['url'] ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] mb-4" />
+							<?php endif; ?>
+							<h3 class="font-display font-semibold text-[22px] leading-[25px] text-[#0F172A] mb-1"><?php echo esc_html( $member['name'] ); ?></h3>
+							<p class="text-[#6B7280] text-[16px] leading-[26px]"><?php echo esc_html( $member['role'] ); ?></p>
+						</div>
+					<?php endforeach; ?>
+				</div>
+
+				<!-- Desktop: split photo row + name/role row, per Figma -->
+				<div class="hidden lg:flex lg:flex-col gap-3 mb-5">
+					<div class="grid grid-cols-4 gap-5">
 						<?php foreach ( $settings['members'] as $member ) : ?>
 							<?php if ( ! empty( $member['photo']['url'] ) ) : ?>
 								<img src="<?php echo esc_url( $member['photo']['url'] ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)]" />
 							<?php endif; ?>
 						<?php endforeach; ?>
 					</div>
-					<div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+					<div class="grid grid-cols-4 gap-5">
 						<?php foreach ( $settings['members'] as $member ) : ?>
 							<div class="bg-white border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-2xl px-6 py-5">
 								<h3 class="font-display font-semibold text-[22px] leading-[25px] text-[#0F172A] mb-2.5"><?php echo esc_html( $member['name'] ); ?></h3>
@@ -214,7 +228,7 @@ class Human_Review_Team_Widget extends Widget_Base {
 					<div class="flex items-center gap-4 sm:gap-[15px] shrink-0">
 						<?php foreach ( $settings['stats'] as $stat ) : ?>
 							<div class="flex flex-col gap-2">
-								<p class="font-display font-medium text-orange text-[48px] leading-[48px]"><?php echo esc_html( $stat['value'] ); ?></p>
+								<p class="js-counter font-display font-medium text-orange text-[48px] leading-[48px]"><?php echo esc_html( $stat['value'] ); ?></p>
 								<p class="text-white text-[14px] leading-[28px] uppercase"><?php echo esc_html( $stat['label'] ); ?></p>
 							</div>
 						<?php endforeach; ?>
