@@ -231,6 +231,17 @@ h1, h2, h3, .font-display {
 .hr-contact-form .hr-field-invalid select:focus {
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important;
 }
+/*
+ * Elementor stretches side-by-side field groups to equal height; its groups are
+ * wrapping flex boxes, so an error message in one column pushed the label and
+ * input in the other column down. Keep each group's content pinned to the top.
+ */
+.hr-contact-form .elementor-form-fields-wrapper {
+  align-items: flex-start;
+}
+.hr-contact-form .elementor-field-group {
+  align-content: flex-start;
+}
 .hr-contact-form .hr-field-error,
 .hr-contact-form .elementor-error .elementor-message {
   display: block !important;

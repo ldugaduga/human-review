@@ -1,6 +1,6 @@
   <!-- CTA -->
   <section class="relative bg-black overflow-hidden">
-    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/cta-texture.png' ); ?>" alt="" class="absolute inset-x-0 bottom-0 w-full h-auto opacity-90 pointer-events-none select-none" />
+    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/cta-texture.png' ); ?>" alt="" class="absolute inset-0 w-full h-full object-cover object-bottom opacity-90 pointer-events-none select-none" style="inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: bottom;" />
     <div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 pt-24 pb-32 text-center">
       <h2 class="font-display font-extrabold text-white text-[34px] sm:text-[42px] leading-tight mb-4">Ready for real feedback?</h2>
       <p class="text-white/50 text-[15.5px] leading-relaxed max-w-md mx-auto mb-8">Our core team is dedicated to building the world's most trusted supply of human feedback.</p>
