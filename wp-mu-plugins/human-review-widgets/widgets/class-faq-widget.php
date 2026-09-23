@@ -162,7 +162,7 @@ class Human_Review_Faq_Widget extends Widget_Base {
 		}
 		?>
 		<section class="<?php echo esc_attr( $section_class ); ?>"<?php echo $section_style ? ' style="' . esc_attr( $section_style ) . '"' : ''; ?>>
-			<div class="max-w-[1092px] mx-auto px-6 lg:px-10 py-20 lg:py-24 flex flex-col items-center gap-16">
+			<div class="max-w-[1092px] mx-auto px-6 lg:px-0 py-20 lg:py-24 flex flex-col items-center gap-16">
 				<div class="flex flex-col items-center gap-5 max-w-[500px] text-center">
 					<h2 class="font-display font-semibold text-[36px] sm:text-[44px] lg:text-[56px] leading-[1.15] tracking-[-0.03em] text-[#242424]"><?php echo esc_html( $settings['heading'] ); ?></h2>
 				</div>

@@ -110,7 +110,7 @@ class Human_Review_Hero_Widget extends Widget_Base {
 		$image_url = ! empty( $settings['image']['url'] ) ? $settings['image']['url'] : HUMAN_REVIEW_WIDGETS_URL . '/assets/img/hero-map.svg';
 		?>
 		<section class="bg-[#F9FAFB]">
-			<div class="max-w-[1280px] mx-auto px-6 py-16 lg:pt-[160px] lg:px-[104px] lg:pb-24 grid lg:grid-cols-2 gap-12 lg:items-start">
+			<div class="max-w-[1280px] mx-auto px-6 py-16 lg:pt-[160px] lg:px-0 lg:pb-24 grid lg:grid-cols-2 gap-12 lg:gap-16 lg:items-start">
 				<div class="flex flex-col items-start gap-8 w-full max-w-[712px]">
 					<span class="box-border inline-flex flex-row justify-center items-center px-4 py-1.5 bg-gradient-to-b from-white to-[#F1F1F1] border border-[#EEEEEE] rounded-full text-[12px] font-semibold tracking-[0.1em] text-[#10182B] uppercase">
 						<?php echo esc_html( $settings['badge_text'] ); ?>
@@ -130,8 +130,8 @@ class Human_Review_Hero_Widget extends Widget_Base {
 					</a>
 				</div>
 
-				<div class="flex justify-center lg:justify-end w-full max-w-[520px] h-[520px] isolate lg:translate-x-10 xl:translate-x-16">
-					<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $settings['image_alt'] ); ?>" class="w-full h-full object-contain" />
+				<div class="flex justify-center lg:justify-end w-full max-w-[520px] h-[520px] isolate xl:translate-x-6">
+					<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $settings['image_alt'] ); ?>" class="w-full h-full object-contain" style="margin-right: -100px;" />
 				</div>
 			</div>
 		</section>

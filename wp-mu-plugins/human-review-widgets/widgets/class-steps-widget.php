@@ -128,7 +128,7 @@ class Human_Review_Steps_Widget extends Widget_Base {
 		}
 		?>
 		<section class="bg-white">
-			<div class="max-w-[1120px] mx-auto px-6 lg:px-10 py-20 lg:py-24">
+			<div class="max-w-[1120px] mx-auto px-6 lg:px-0 py-20 lg:py-24">
 				<div class="grid grid-cols-[64px_1fr] gap-x-6 gap-y-6">
 					<!-- connector: one dashed line spanning the full rail column, behind every circle -->
 					<div class="col-start-1 row-start-1 row-end-4 flex justify-center">

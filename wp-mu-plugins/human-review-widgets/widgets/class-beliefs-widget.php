@@ -118,7 +118,7 @@ class Human_Review_Beliefs_Widget extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		?>
 		<section class="bg-[#F9FAFB]">
-			<div class="max-w-[1280px] mx-auto px-6 py-20 lg:py-[100px] lg:px-[104px]">
+			<div class="max-w-[1280px] mx-auto px-6 py-20 lg:py-[100px] lg:px-0">
 				<div class="text-center max-w-xl mx-auto mb-12">
 					<h2 class="font-display font-semibold text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] text-[#0F172A] mb-4"><?php echo esc_html( $settings['heading'] ); ?></h2>
 					<p class="text-[#0F172A] text-[18px] leading-[28px]"><?php echo esc_html( $settings['subheading'] ); ?></p>

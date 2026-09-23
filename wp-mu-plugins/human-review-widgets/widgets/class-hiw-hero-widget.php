@@ -82,7 +82,7 @@ class Human_Review_Hiw_Hero_Widget extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		?>
 		<section class="bg-[#F9FAFB]">
-			<div class="max-w-[1280px] mx-auto px-6 py-16 lg:pt-[160px] lg:px-[104px] lg:pb-24 flex flex-col items-start gap-8">
+			<div class="max-w-[1280px] mx-auto px-6 py-16 lg:pt-[160px] lg:px-0 lg:pb-24 flex flex-col items-start gap-8">
 				<span class="box-border inline-flex flex-row justify-center items-center px-4 py-1.5 bg-gradient-to-b from-white to-[#F1F1F1] border border-[#EEEEEE] rounded-full text-[12px] font-semibold tracking-[0.1em] text-[#10182B] uppercase">
 					<?php echo esc_html( $settings['badge_text'] ); ?>
 				</span>

@@ -92,7 +92,7 @@ class Human_Review_Why_Exist_Widget extends Widget_Base {
 		$image_url = ! empty( $settings['image']['url'] ) ? $settings['image']['url'] : HUMAN_REVIEW_WIDGETS_URL . '/assets/img/why-exist.svg';
 		?>
 		<section class="bg-white">
-			<div class="max-w-[1280px] mx-auto px-6 py-20 lg:py-[120px] lg:px-[104px] flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-[90px]">
+			<div class="max-w-[1280px] mx-auto px-6 py-20 lg:py-[120px] lg:px-0 flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-[90px]">
 				<div class="flex-1 flex flex-col items-start gap-8 max-w-[571px]">
 					<h2 class="font-display font-semibold text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] text-[#0F172A]"><?php echo esc_html( $settings['heading'] ); ?></h2>
 					<div class="text-[#0F172A] text-[17px] sm:text-[18px] leading-[26px] space-y-4">

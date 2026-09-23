@@ -117,7 +117,7 @@ class Human_Review_Unfiltered_Truth_Widget extends Widget_Base {
 		$image_url  = ! empty( $settings['card_image']['url'] ) ? $settings['card_image']['url'] : HUMAN_REVIEW_WIDGETS_URL . '/assets/img/how-it-works/respondent.png';
 		?>
 		<section class="bg-white texture-bg">
-			<div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-20 lg:py-24 grid lg:grid-cols-2 gap-16 items-center">
+			<div class="max-w-[1280px] mx-auto px-6 lg:px-0 py-20 lg:py-24 grid lg:grid-cols-2 gap-16 items-center">
 				<div>
 					<h2 class="font-display font-semibold text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] text-[#0F172A] mb-6"><?php echo esc_html( $settings['heading'] ); ?></h2>
 					<p class="text-[#0F172A] text-[18px] sm:text-[20px] leading-[26px] max-w-md mb-8"><?php echo esc_html( $settings['subcopy'] ); ?></p>
