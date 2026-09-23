@@ -45,8 +45,9 @@ The mu-plugin is the **production deliverable**. The static HTML files are the r
 | `class-help-cards-widget.php` | How It Works — How We Can Help |
 | `class-unfiltered-truth-widget.php` | How It Works — Unfiltered Truth |
 | `class-faq-widget.php` | FAQ accordion (shared, used on multiple pages) |
+| `class-contact-widget.php` | Contact — hero, "what happens next", testimonial, logo marquee, and form card |
 
-`contact.html` has no corresponding widget yet — it's static-only so far.
+The contact form itself comes from a form plugin: paste its shortcode (CF7, WPForms, Gravity Forms, or `[elementor-template id="…"]`) into the widget's Form settings. A second "Support" shortcode is optional; when set, the General / Support tabs appear and switch between the two forms. An importable Elementor Pro form matching the design lives in `elementor-templates/contact-form-general.json` (its checkbox field renders as the "help" pills). Plugin form fields are styled by `.hr-contact-form` rules in `src/input.css`, which use `!important` because the plugin's markup can't carry inline styles.
 
 ## Known recurring gotcha: Elementor atomic style stripping
 
@@ -70,10 +71,10 @@ If a class-based style looks correct in local preview but not on the live site, 
 
 ## Open items / things to check next
 
-- `contact.html` has no Elementor widget counterpart yet
+- Contact widget: not yet tested against the live site's actual form plugin — check field/label spacing and that the plugin's own CSS doesn't win anywhere `.hr-contact-form` doesn't use `!important`
 - No automated deploy pipeline — every fix needs manual file copy to the live site's `mu-plugins/` folder, plus a `tailwind.css` rebuild before copying
-- Worth an audit pass: any other widgets using Tailwind classes for `box-shadow`/`border-radius`/similar properties that haven't yet hit the "Elementor strips it" bug in testing, but might on the live site (see gotcha section above)
-- The FAQ widget has a "Section Background" control (Textured / Custom Color) added earlier — worth double-checking it still renders correctly after the `#F9FAFB` accuracy pass
+- Inline-style audit done (2026-09-23): all box-shadows are now inline; `rounded-*` on cards/pills are still class-only since none have broken live yet — inline them if they do
+- FAQ "Section Background": "Textured" restored (2026-09-23) — `texture-bg.png` over `#F9FAFB`, set inline so Elementor can't strip it; static FAQ sections use `texture-bg` too
 
 ## Local dev quickstart
 
