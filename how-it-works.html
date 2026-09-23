@@ -33,13 +33,15 @@
 <body class="bg-white text-ink antialiased">
 
   <!-- Header -->
-  <header class="w-full bg-[#F9FAFB] backdrop-blur-[6px] border-b border-[#F3F4F6]">
-    <div class="max-w-[1280px] mx-auto flex items-center justify-between px-6 lg:px-0 py-5">
+  <!-- spacer holds the fixed header's height (72px bar + 1px border) so page content starts below it -->
+  <div class="h-[73px]" aria-hidden="true"></div>
+  <header class="fixed top-0 inset-x-0 z-50 w-full bg-[#F9FAFB] backdrop-blur-[6px] border-b border-[#F3F4F6]">
+    <div class="max-w-[1280px] h-[72px] mx-auto flex items-center justify-between px-6 lg:px-0">
       <a href="#" class="flex items-center gap-2 shrink-0">
         <img src="assets/img/logo.svg" alt="The Human Review" class="h-7 w-auto" />
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-[16px] font-medium text-[#0F172A]">
+      <nav class="hidden min-[880px]:flex items-center gap-8 text-[16px] font-medium text-[#0F172A]">
         <a href="#" class="text-ink">How it works</a>
         <a href="#" class="hover:text-ink transition">Solutions</a>
         <a href="#" class="hover:text-ink transition">Pricing</a>
@@ -50,7 +52,7 @@
         <a href="#" class="hidden sm:inline-flex items-center px-[16.8px] py-[9px] rounded-full border border-[#CCCCDC] text-[14px] font-medium text-[#0F172A] hover:bg-ink/5 transition">Log in</a>
         <a href="#" class="hidden sm:inline-flex items-center px-[16.8px] py-[9px] rounded-full bg-[#0F172A] text-white text-[14px] font-semibold hover:bg-[#0F172A]/90 transition">Sign up free</a>
 
-        <button id="menu-btn" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-ink/5 transition -mr-2">
+        <button id="menu-btn" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" class="min-[880px]:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-ink/5 transition -mr-2">
           <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7H20M4 12H20M4 17H20" stroke="#12141C" stroke-width="1.8" stroke-linecap="round"/></svg>
           <svg id="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" class="hidden"><path d="M6 6L18 18M18 6L6 18" stroke="#12141C" stroke-width="1.8" stroke-linecap="round"/></svg>
         </button>
@@ -58,7 +60,7 @@
     </div>
 
     <!-- Mobile menu panel -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-ink/10 bg-white">
+    <div id="mobile-menu" class="hidden min-[880px]:hidden max-h-[calc(100vh-73px)] overflow-y-auto border-t border-ink/10 bg-white">
       <nav class="px-6 py-4 flex flex-col text-[16px] font-medium text-[#0F172A]">
         <a href="#" class="block px-2 py-2.5 rounded-lg bg-ink/5 text-ink">How it works</a>
         <a href="#" class="block px-2 py-2.5 rounded-lg hover:bg-ink/5 hover:text-ink transition">Solutions</a>
@@ -108,7 +110,7 @@
         </div>
 
         <span class="col-start-1 row-start-1 self-start relative z-10 w-16 h-16 rounded-full border-[1.33px] border-[#EEEEEE] bg-white flex items-center justify-center text-[20px] font-semibold leading-[26px] tracking-[1.6px] uppercase text-[#6B7280]">01</span>
-        <div class="col-start-2 row-start-1 flex items-center justify-between gap-[15.3px] max-w-[1032px] min-h-[208px] bg-white border border-[#F3F4F6] rounded-2xl p-9 shadow-[0px_1px_2px_rgba(0,0,0,0.05),inset_0px_-4px_24px_rgba(0,0,0,0.03)]">
+        <div class="col-start-2 row-start-1 flex flex-col-reverse items-start gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-[15.3px] max-w-[1032px] sm:min-h-[208px] bg-white border border-[#F3F4F6] rounded-2xl p-6 sm:p-9 shadow-[0px_1px_2px_rgba(0,0,0,0.05),inset_0px_-4px_24px_rgba(0,0,0,0.03)]">
           <div>
             <h3 class="font-display font-semibold text-[24px] sm:text-[28px] leading-[34px] text-[#0F172A] mb-4">Create a request</h3>
             <p class="text-[#6B7280] text-[16px] sm:text-[18px] leading-[28px] max-w-lg">Tell us exactly what you need reviewed or tested. You can define your target audience, set specific tasks or questions, and choose the format of the feedback you need.</p>
@@ -117,7 +119,7 @@
         </div>
 
         <span class="col-start-1 row-start-2 self-start relative z-10 w-16 h-16 rounded-full border-[1.33px] border-[#EEEEEE] bg-white flex items-center justify-center text-[20px] font-semibold leading-[26px] tracking-[1.6px] uppercase text-[#6B7280]">02</span>
-        <div class="col-start-2 row-start-2 flex items-center justify-between gap-[15.3px] max-w-[1032px] min-h-[208px] bg-white border border-[#F3F4F6] rounded-2xl p-9 shadow-[0px_1px_2px_rgba(0,0,0,0.05),inset_0px_-4px_24px_rgba(0,0,0,0.03)]">
+        <div class="col-start-2 row-start-2 flex flex-col-reverse items-start gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-[15.3px] max-w-[1032px] sm:min-h-[208px] bg-white border border-[#F3F4F6] rounded-2xl p-6 sm:p-9 shadow-[0px_1px_2px_rgba(0,0,0,0.05),inset_0px_-4px_24px_rgba(0,0,0,0.03)]">
           <div>
             <h3 class="font-display font-semibold text-[24px] sm:text-[28px] leading-[34px] text-[#0F172A] mb-4">We match you with verified real people</h3>
             <p class="text-[#6B7280] text-[16px] sm:text-[18px] leading-[28px] max-w-lg">Our matching engine finds the best people in our network for your project. Every single participant is identity-verified—no bots, no fakes, ever.</p>
@@ -126,7 +128,7 @@
         </div>
 
         <span class="col-start-1 row-start-3 self-start relative z-10 w-16 h-16 rounded-full border-[1.33px] border-[#EEEEEE] bg-white flex items-center justify-center text-[20px] font-semibold leading-[26px] tracking-[1.6px] uppercase text-[#6B7280]">03</span>
-        <div class="col-start-2 row-start-3 flex items-center justify-between gap-[15.3px] max-w-[1032px] min-h-[208px] bg-white border border-[#F3F4F6] rounded-2xl p-9 shadow-[0px_1px_2px_rgba(0,0,0,0.05),inset_0px_-4px_24px_rgba(0,0,0,0.03)]">
+        <div class="col-start-2 row-start-3 flex flex-col-reverse items-start gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-[15.3px] max-w-[1032px] sm:min-h-[208px] bg-white border border-[#F3F4F6] rounded-2xl p-6 sm:p-9 shadow-[0px_1px_2px_rgba(0,0,0,0.05),inset_0px_-4px_24px_rgba(0,0,0,0.03)]">
           <div>
             <h3 class="font-display font-semibold text-[24px] sm:text-[28px] leading-[34px] text-[#0F172A] mb-4">They review or test</h3>
             <p class="text-[#6B7280] text-[16px] sm:text-[18px] leading-[28px] max-w-lg">Reviewers interact with your product and provide honest, raw feedback. This includes written summaries, ratings, and video or audio recordings depending on your request.</p>
@@ -135,7 +137,7 @@
         </div>
 
         <span class="col-start-1 row-start-4 self-start relative z-10 w-16 h-16 rounded-full border-[1.33px] border-[#EEEEEE] bg-white flex items-center justify-center text-[20px] font-semibold leading-[26px] tracking-[1.6px] uppercase text-[#6B7280]">04</span>
-        <div class="col-start-2 row-start-4 flex items-center justify-between gap-[15.3px] max-w-[1032px] min-h-[208px] bg-white border border-[#F3F4F6] rounded-2xl p-9 shadow-[0px_1px_2px_rgba(0,0,0,0.05),inset_0px_-4px_24px_rgba(0,0,0,0.03)]">
+        <div class="col-start-2 row-start-4 flex flex-col-reverse items-start gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-[15.3px] max-w-[1032px] sm:min-h-[208px] bg-white border border-[#F3F4F6] rounded-2xl p-6 sm:p-9 shadow-[0px_1px_2px_rgba(0,0,0,0.05),inset_0px_-4px_24px_rgba(0,0,0,0.03)]">
           <div>
             <h3 class="font-display font-semibold text-[24px] sm:text-[28px] leading-[34px] text-[#0F172A] mb-4">You get honest feedback and media</h3>
             <p class="text-[#6B7280] text-[16px] sm:text-[18px] leading-[28px] max-w-lg">Review all responses and high-quality media files directly in your dashboard. Export findings or share clips with your team immediately.</p>
@@ -414,7 +416,7 @@
       btn.addEventListener('click', toggleMenu);
       menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
       window.addEventListener('resize', () => {
-        if (window.innerWidth >= 768) closeMenu();
+        if (window.innerWidth >= 880) closeMenu();
       });
     })();
   </script>

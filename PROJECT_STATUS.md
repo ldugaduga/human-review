@@ -74,6 +74,16 @@ If a class-based style looks correct in local preview but not on the live site, 
 10. Added a scroll-triggered count-up animation (`12k+`, `24h` stats) via `IntersectionObserver` + `requestAnimationFrame`, generic enough to animate any numeric-prefixed stat value
 11. Hero globe image nudge: found and fixed a bug where a flat (non-responsive) inline `margin-right: -100px` — added earlier to nudge the globe right on desktop — was also firing on mobile and pushing the image off-screen. Fixed by scoping it inside a `@media (min-width: 1280px)` block in a small `<style>` tag in the widget's `render()`.
 
+## Header behaviour
+
+- The header is `position: fixed` at the top, followed in the markup by a 73px spacer (72px bar + 1px border) so page content starts below it. The bar has a fixed `h-[72px]`; if its height changes, update the spacer too.
+- Hamburger ↔ desktop nav switches at **880px**: the `nav` screen in the widget `tailwind.config.js` + `main.js` resize check, and `min-[880px]:` + the inline script on the static pages.
+- Widget only (`src/input.css`): the header drops below the WP admin bar when logged in, and falls back to normal flow in the Elementor editor.
+
+## Contact form validation
+
+The embedded form plugin only had the browser's native popup, which was easy to miss and left fields unmarked. `main.js` now validates `.hr-contact-form` forms inline: it sets `novalidate`, checks fields on submit (capture phase on `document`, so it runs before the plugin's own handler), shows a red border + message under each invalid field, focuses/centres the first one, and clears errors as the user types. Styles for these, and for Elementor Pro's own server-side `.elementor-error` / `.elementor-message` output, are at the end of `src/input.css`.
+
 ## Open items / things to check next
 
 - Contact widget: not yet tested against the live site's actual form plugin — check field/label spacing and that the plugin's own CSS doesn't win anywhere `.hr-contact-form` doesn't use `!important`
