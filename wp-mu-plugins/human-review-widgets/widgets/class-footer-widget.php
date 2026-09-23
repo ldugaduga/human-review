@@ -262,8 +262,8 @@ class Human_Review_Footer_Widget extends Widget_Base {
 		$texture_url = ! empty( $settings['cta_banner_texture']['url'] ) ? $settings['cta_banner_texture']['url'] : HUMAN_REVIEW_WIDGETS_URL . '/assets/img/cta-texture.png';
 		?>
 		<!-- Ready for real feedback? (CTA) -->
-		<section class="relative bg-black overflow-hidden">
-			<img src="<?php echo esc_url( $texture_url ); ?>" alt="" class="absolute inset-x-0 bottom-0 w-full h-auto opacity-90 pointer-events-none select-none" />
+		<section class="relative bg-[#171717] overflow-hidden isolate">
+			<img src="<?php echo esc_url( $texture_url ); ?>" alt="" class="absolute inset-x-0 bottom-0 w-full h-auto mix-blend-hard-light pointer-events-none select-none" style="mix-blend-mode: hard-light;" />
 			<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 pt-24 pb-32 text-center">
 				<h2 class="font-display font-semibold text-white text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] mb-4"><?php echo esc_html( $settings['cta_banner_heading'] ); ?></h2>
 				<p class="text-white/70 text-[16px] sm:text-[18px] leading-relaxed max-w-md mx-auto mb-8"><?php echo esc_html( $settings['cta_banner_text'] ); ?></p>
