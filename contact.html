@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — The Human Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          orange: {
+            DEFAULT: '#FF6D18',
+            600: '#F0610E',
+          },
+          ink: '#12141C',
+          surface: '#F3F4F9',
+        },
+        fontFamily: {
+          display: ['"Onest"', 'sans-serif'],
+          sans: ['"Onest"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+<link rel="stylesheet" href="assets/css/main.css" />
+<style>
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    animation: marquee 28s linear infinite;
+  }
+</style>
+</head>
+<body class="bg-white text-ink antialiased">
+
+  <!-- Header -->
+  <header class="w-full bg-white">
+    <div class="max-w-[1280px] mx-auto flex items-center justify-between px-6 lg:px-10 py-5">
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
+        <img src="assets/img/logo.svg" alt="The Human Review" class="h-7 w-auto" />
+      </a>
+
+      <nav class="hidden md:flex items-center gap-9 text-[15px] font-medium text-ink/80">
+        <a href="how-it-works.html" class="hover:text-ink transition">How it works</a>
+        <a href="#" class="hover:text-ink transition">Solutions</a>
+        <a href="#" class="hover:text-ink transition">Pricing</a>
+        <a href="about.html" class="hover:text-ink transition">About</a>
+      </nav>
+
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="#" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full border border-ink/15 text-[15px] font-medium text-ink hover:bg-ink/5 transition">Log in</a>
+        <a href="#" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-ink text-white text-[15px] font-medium hover:bg-ink/90 transition">Sign up free</a>
+
+        <button id="menu-btn" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-ink/5 transition -mr-2">
+          <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7H20M4 12H20M4 17H20" stroke="#12141C" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg id="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" class="hidden"><path d="M6 6L18 18M18 6L6 18" stroke="#12141C" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-ink/10 bg-white">
+      <nav class="px-6 py-4 flex flex-col text-[15px] font-medium text-ink/80">
+        <a href="how-it-works.html" class="block px-2 py-2.5 rounded-lg hover:bg-ink/5 hover:text-ink transition">How it works</a>
+        <a href="#" class="block px-2 py-2.5 rounded-lg hover:bg-ink/5 hover:text-ink transition">Solutions</a>
+        <a href="#" class="block px-2 py-2.5 rounded-lg hover:bg-ink/5 hover:text-ink transition">Pricing</a>
+        <a href="about.html" class="block px-2 py-2.5 rounded-lg hover:bg-ink/5 hover:text-ink transition">About</a>
+      </nav>
+      <div class="px-6 pb-6 pt-2 flex flex-col gap-3 border-t border-ink/10">
+        <a href="#" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-ink/15 text-[15px] font-medium text-ink hover:bg-ink/5 transition">Log in</a>
+        <a href="#" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-ink text-white text-[15px] font-medium hover:bg-ink/90 transition">Sign up free</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero + Contact form -->
+  <section class="bg-white">
+    <div class="max-w-[1280px] mx-auto px-6 lg:px-10 pt-12 pb-20 lg:pt-16 lg:pb-24 flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:items-start">
+
+      <!-- Left: info column -->
+      <div class="flex flex-col items-start gap-8">
+        <span class="box-border inline-flex flex-row justify-center items-center px-4 py-1.5 gap-2 bg-gradient-to-b from-white to-[#F1F1F1] border border-[#EEEEEE] rounded-full text-[12px] font-semibold tracking-[0.1em] text-[#10182B] uppercase">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="shrink-0"><rect width="20" height="20" rx="5" fill="#17324D"/><path d="M6 10.5L8.5 13L14 7" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Reviewed on Clutch 4.9/5.0
+        </span>
+
+        <div class="flex flex-col items-start gap-8">
+          <h1 class="font-display font-semibold text-[40px] leading-[44px] tracking-[-1.6px] sm:text-[56px] sm:leading-[60px] sm:tracking-[-2.4px] lg:text-[84px] lg:leading-[84px] lg:tracking-[-3.84px] text-[#0F172A]">
+            Let&rsquo;s get your users <span class="text-orange">talking.</span>
+          </h1>
+          <p class="text-[#5D6370] text-[18px] sm:text-[20px] leading-[30px] max-w-[574px]">
+            Tell us about your project or get help with an existing booking. We&rsquo;ll take it from there.
+          </p>
+        </div>
+
+        <!-- What happens next -->
+        <div class="flex flex-col items-start gap-5">
+          <p class="font-mono text-[13px] sm:text-[14px] tracking-[0.1em] uppercase text-[#8A8AA8]">What happens next :</p>
+          <div class="flex flex-col items-start gap-3.5">
+            <div class="flex items-center gap-2">
+              <span class="shrink-0 w-8 h-8 flex items-center justify-center bg-white border border-[#EEEEEE] rounded-full text-[12px] font-semibold tracking-[0.05em] uppercase text-[#6B7280]">01</span>
+              <span class="font-display font-medium text-[17px] sm:text-[18px] leading-[26px] text-[#0F172A]">Fill a short brief. Takes about 2 minutes.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="shrink-0 w-8 h-8 flex items-center justify-center bg-white border border-[#EEEEEE] rounded-full text-[12px] font-semibold tracking-[0.05em] uppercase text-[#6B7280]">02</span>
+              <span class="font-display font-medium text-[17px] sm:text-[18px] leading-[26px] text-[#0F172A]">An expert reviews it and reaches out the same day.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="shrink-0 w-8 h-8 flex items-center justify-center bg-white border border-[#EEEEEE] rounded-full text-[12px] font-semibold tracking-[0.05em] uppercase text-[#6B7280]">03</span>
+              <span class="font-display font-medium text-[17px] sm:text-[18px] leading-[26px] text-[#0F172A]">Get a clear research plan within 24 hours.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="w-full max-w-[448px] flex items-start gap-4 p-4 bg-[#FBFCFD] border border-[#F1F5F9] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-xl">
+          <div class="shrink-0 w-[50px] h-[50px] rounded-full bg-[#EEF0FF] border-[2px] border-white shadow-[0_0_0_1.5px_rgba(255,109,24,0.5),0_9px_22px_-7px_rgba(15,10,46,0.38)] overflow-hidden flex items-center justify-center">
+            <img src="assets/img/teams/elena-01.jpg" alt="Megan Love" class="w-full h-full object-cover" />
+          </div>
+          <div class="flex flex-col gap-3">
+            <p class="text-[14px] leading-[22px] text-[#0F172A]">&ldquo;Super responsive, detail-oriented, and great planners. Definitely recommend working with this amazing team!&rdquo;</p>
+            <div class="flex flex-col gap-1">
+              <p class="font-display font-semibold text-[14px] leading-[18px] text-[#0F172A]">Megan Love</p>
+              <p class="font-mono text-[12px] leading-[20px] tracking-[0.05em] uppercase text-[#8A8AA8]">VP Marketing, Axero Solution</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trusted by -->
+        <div class="w-full flex flex-col items-start gap-5">
+          <p class="font-mono text-[13px] sm:text-[14px] tracking-[0.1em] uppercase text-[#8A8AA8]">Trusted by teams at :</p>
+          <div class="w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div class="flex items-center gap-16 w-max marquee-track">
+              <div class="flex items-center gap-16 shrink-0">
+                <img src="assets/img/contact/brands/Image%20(IBM).png" alt="IBM" class="max-h-7 w-auto opacity-50" />
+                <img src="assets/img/contact/brands/Image%20(Microsoft).png" alt="Microsoft" class="max-h-7 w-auto opacity-50" />
+                <img src="assets/img/contact/brands/Image%20(GitLab).png" alt="GitLab" class="max-h-7 w-auto opacity-50" />
+                <img src="assets/img/contact/brands/Image%20(Notion).png" alt="Notion" class="max-h-7 w-auto opacity-50" />
+                <img src="assets/img/contact/brands/Image%20(Figma).png" alt="Figma" class="max-h-7 w-auto opacity-50" />
+                <img src="assets/img/contact/brands/Image%20(Loom).png" alt="Loom" class="max-h-7 w-auto opacity-50" />
+              </div>
+              <div class="flex items-center gap-16 shrink-0" aria-hidden="true">
+                <img src="assets/img/contact/brands/Image%20(IBM).png" alt="" class="max-h-7 w-auto opacity-50" />
+                <img src="assets/img/contact/brands/Image%20(Microsoft).png" alt="" class="max-h-7 w-auto opacity-50" />
+                <img src="assets/img/contact/brands/Image%20(GitLab).png" alt="" class="max-h-7 w-auto opacity-50" />
+                <img src="assets/img/contact/brands/Image%20(Notion).png" alt="" class="max-h-7 w-auto opacity-50" />
+                <img src="assets/img/contact/brands/Image%20(Figma).png" alt="" class="max-h-7 w-auto opacity-50" />
+                <img src="assets/img/contact/brands/Image%20(Loom).png" alt="" class="max-h-7 w-auto opacity-50" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form card -->
+      <div class="w-full bg-white border border-[#F1F5F9] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] rounded-2xl overflow-hidden">
+
+        <!-- Tabs -->
+        <div class="flex justify-center p-2">
+          <div class="w-full flex items-stretch gap-1 p-0.5 bg-[#F5F6F8] rounded-[10px]">
+            <button type="button" data-tab="general" class="contact-tab flex-1 flex items-center justify-center gap-2 px-2 py-3 rounded-lg bg-white shadow-[0px_1px_2px_rgba(17,24,38,0.05)] text-orange text-[16px] font-semibold capitalize transition" aria-selected="true">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2.5" y="4.5" width="15" height="11" rx="2" stroke="#FF6D18" stroke-width="1.25"/><path d="M3 5.5L10 11L17 5.5" stroke="#FF6D18" stroke-width="1.25" stroke-linecap="round"/></svg>
+              General Enquiry
+            </button>
+            <button type="button" data-tab="support" class="contact-tab flex-1 flex items-center justify-center gap-2 px-2 py-3 rounded-lg text-[#6C717B] text-[16px] font-semibold capitalize transition">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7.5" r="3" stroke="#6C717B" stroke-width="1.25"/><path d="M4 17c0-3 2.5-5 6-5s6 2 6 5" stroke="#6C717B" stroke-width="1.25" stroke-linecap="round"/></svg>
+              Support &amp; Help
+            </button>
+          </div>
+        </div>
+
+        <div class="px-6 sm:px-8 pb-10 sm:pb-12 pt-2 flex flex-col gap-10">
+          <div class="flex flex-col gap-1">
+            <h2 class="font-display font-semibold text-[28px] sm:text-[32px] leading-[38px] text-[#0F172A]">Tell us what you need.</h2>
+            <p class="text-[#5D6370] text-[17px] sm:text-[18px] leading-[30px]">We&rsquo;ll get back to you faster than you think.</p>
+          </div>
+
+          <form class="flex flex-col gap-8" onsubmit="return false;">
+            <div class="flex flex-col sm:flex-row gap-6">
+              <div class="flex-1 flex flex-col gap-2">
+                <label for="workspace" class="text-[14px] font-medium text-[#131821]">Workspace name</label>
+                <input id="workspace" type="text" placeholder="Nordic Studio" class="w-full px-3 py-3 border border-[#E1E3E7] shadow-[0px_1px_2px_rgba(17,24,38,0.06),0px_1px_3px_rgba(17,24,38,0.05)] rounded-lg text-[14px] text-[#131821] placeholder-[#A8AEB9] focus:outline-none focus:border-orange transition" />
+              </div>
+              <div class="flex-1 flex flex-col gap-2">
+                <label for="email" class="text-[14px] font-medium text-[#131821]">Work Email <span class="text-orange">*</span></label>
+                <input id="email" type="email" required placeholder="alex@techflow.io" class="w-full px-3 py-3 border border-[#E1E3E7] shadow-[0px_1px_2px_rgba(17,24,38,0.06),0px_1px_3px_rgba(17,24,38,0.05)] rounded-lg text-[14px] text-[#131821] placeholder-[#A8AEB9] focus:outline-none focus:border-orange transition" />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="project" class="text-[14px] font-medium text-[#131821]">What&rsquo;s the #1 thing we can help with? <span class="text-orange">*</span></label>
+              <textarea id="project" required rows="3" placeholder="Tell us about your project, goals, or the issues you're facing..." class="w-full px-3 py-3 border border-[#E1E3E7] shadow-[0px_1px_2px_rgba(17,24,38,0.06),0px_1px_3px_rgba(17,24,38,0.05)] rounded-lg text-[14px] text-[#131821] placeholder-[#A8AEB9] focus:outline-none focus:border-orange transition resize-none"></textarea>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="source" class="text-[14px] font-medium text-[#131821]">How did you hear about us? (Optional)</label>
+              <div class="relative">
+                <select id="source" class="w-full appearance-none px-3 py-3 pr-10 border border-[#E1E3E7] shadow-[0px_1px_2px_rgba(17,24,38,0.06),0px_1px_3px_rgba(17,24,38,0.05)] rounded-lg text-[14px] text-[#131821] focus:outline-none focus:border-orange transition">
+                  <option value="">Select an option</option>
+                  <option value="search">Search engine</option>
+                  <option value="social">Social media</option>
+                  <option value="referral">Referral</option>
+                  <option value="other">Other</option>
+                </select>
+                <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label class="text-[14px] font-medium text-[#131821]">What help do you need? (Pick all that apply)</label>
+              <div class="flex flex-wrap items-center gap-2.5">
+                <button type="button" class="help-pill px-3.5 py-2 rounded-full border border-[#E2E8F0] bg-white text-[14px] font-medium text-[#64748B] hover:border-orange/40 transition">Customer Reviews</button>
+                <button type="button" class="help-pill is-active flex items-center gap-2 px-3.5 py-2 rounded-full border border-[#E2E8F0] bg-white text-[14px] font-semibold text-[#131821] transition">
+                  Product Research
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 10.5L8.5 14L15 6" stroke="#FF6D18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button type="button" class="help-pill px-3.5 py-2 rounded-full border border-[#E2E8F0] bg-white text-[14px] font-medium text-[#64748B] hover:border-orange/40 transition">UX Audit</button>
+                <button type="button" class="help-pill px-3.5 py-2 rounded-full border border-[#E2E8F0] bg-white text-[14px] font-medium text-[#64748B] hover:border-orange/40 transition">Bulk Pricing</button>
+                <button type="button" class="help-pill px-3.5 py-2 rounded-full border border-[#E2E8F0] bg-white text-[14px] font-medium text-[#64748B] hover:border-orange/40 transition">Technical Support</button>
+                <button type="button" class="help-pill px-3.5 py-2 rounded-full border border-[#E2E8F0] bg-white text-[14px] font-medium text-[#64748B] hover:border-orange/40 transition">Other</button>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full flex items-center justify-center gap-2.5 bg-orange hover:bg-orange-600 transition text-white font-bold text-[18px] py-[15px] px-7 rounded-full border border-[#FF853D] shadow-[0px_10px_26px_-10px_rgba(255,109,24,0.5)]">
+              Submit Enquiry
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 border-t border-[#F8FAFC]">
+              <div class="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="#94A3B8" stroke-width="1.3"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke="#94A3B8" stroke-width="1.3"/></svg>
+                <span class="font-mono text-[12px] tracking-[0.08em] uppercase text-[#8A8AA8]">Privacy Protected</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#C0552B" stroke-width="1.3"/><path d="M8 5v3.2l2 1.3" stroke="#C0552B" stroke-width="1.3" stroke-linecap="round"/></svg>
+                <span class="font-mono text-[12px] tracking-[0.08em] uppercase text-[#8A8AA8]">Replies within 24 hours</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#F9FAFB]">
+    <div class="max-w-[1092px] mx-auto px-6 lg:px-10 py-20 lg:py-24 flex flex-col items-center gap-16">
+      <div class="flex flex-col items-center gap-5 max-w-[500px] text-center">
+        <h2 class="font-display font-semibold text-[36px] sm:text-[44px] lg:text-[56px] leading-[1.15] tracking-[-0.03em] text-[#242424]">Frequently asked questions</h2>
+      </div>
+
+      <div class="w-full flex flex-col gap-3">
+        <details open class="group bg-[#FFE4D5] rounded-xl px-5 py-5 transition">
+          <summary class="flex items-center justify-between gap-8 cursor-pointer list-none marker:hidden">
+            <span class="font-display font-semibold text-[17px] sm:text-[18px] leading-[1.2] text-orange">How do I know what budget is right for me?</span>
+            <span class="shrink-0 w-[26px] h-[26px] flex items-center justify-center text-orange text-[22px] leading-none">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">&minus;</span>
+            </span>
+          </summary>
+          <p class="text-[#4B4B4B] text-[15px] sm:text-[16px] leading-[1.5] tracking-[-0.03em] mt-4 max-w-[900px]">We can help you! Just book a call with us and we&rsquo;ll recommend a budget for you based on your team&rsquo;s needs as well as your expected design volume and velocity. Let&rsquo;s find the best option, together.</p>
+        </details>
+
+        <details class="group bg-[#FCFCFC] border border-[#EBEAEA] rounded-xl px-5 py-4 transition">
+          <summary class="flex items-center justify-between gap-8 cursor-pointer list-none marker:hidden">
+            <span class="font-display font-semibold text-[17px] sm:text-[18px] leading-[1.2] text-[#141414]">What is the minimum commitment?</span>
+            <span class="shrink-0 w-[26px] h-[26px] flex items-center justify-center text-[#141414] text-[22px] leading-none">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">&minus;</span>
+            </span>
+          </summary>
+          <p class="text-[#4B4B4B] text-[15px] sm:text-[16px] leading-[1.5] tracking-[-0.03em] mt-4">There&rsquo;s no long-term contract required&mdash;you can start with a single project and scale up whenever you&rsquo;re ready.</p>
+        </details>
+
+        <details class="group bg-[#FCFCFC] border border-[#EBEAEA] rounded-xl px-5 py-4 transition">
+          <summary class="flex items-center justify-between gap-8 cursor-pointer list-none marker:hidden">
+            <span class="font-display font-semibold text-[17px] sm:text-[18px] leading-[1.2] text-[#141414]">How does the onboarding work?</span>
+            <span class="shrink-0 w-[26px] h-[26px] flex items-center justify-center text-[#141414] text-[22px] leading-none">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">&minus;</span>
+            </span>
+          </summary>
+          <p class="text-[#4B4B4B] text-[15px] sm:text-[16px] leading-[1.5] tracking-[-0.03em] mt-4">A dedicated specialist walks you through your first request, helps define your target audience, and gets your project live within a day.</p>
+        </details>
+
+        <details class="group bg-[#FCFCFC] border border-[#EBEAEA] rounded-xl px-5 py-4 transition">
+          <summary class="flex items-center justify-between gap-8 cursor-pointer list-none marker:hidden">
+            <span class="font-display font-semibold text-[17px] sm:text-[18px] leading-[1.2] text-[#141414]">What billing options do you offer?</span>
+            <span class="shrink-0 w-[26px] h-[26px] flex items-center justify-center text-[#141414] text-[22px] leading-none">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">&minus;</span>
+            </span>
+          </summary>
+          <p class="text-[#4B4B4B] text-[15px] sm:text-[16px] leading-[1.5] tracking-[-0.03em] mt-4">Choose monthly or pay-as-you-go billing, with invoicing available for annual plans.</p>
+        </details>
+
+        <details class="group bg-[#FCFCFC] border border-[#EBEAEA] rounded-xl px-5 py-4 transition">
+          <summary class="flex items-center justify-between gap-8 cursor-pointer list-none marker:hidden">
+            <span class="font-display font-semibold text-[17px] sm:text-[18px] leading-[1.2] text-[#141414]">What happens if I don&rsquo;t use all of my budget in a month?</span>
+            <span class="shrink-0 w-[26px] h-[26px] flex items-center justify-center text-[#141414] text-[22px] leading-none">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">&minus;</span>
+            </span>
+          </summary>
+          <p class="text-[#4B4B4B] text-[15px] sm:text-[16px] leading-[1.5] tracking-[-0.03em] mt-4">Unused budget rolls over to the next month, so you never lose what you&rsquo;ve already paid for.</p>
+        </details>
+
+        <details class="group bg-[#FCFCFC] border border-[#EBEAEA] rounded-xl px-5 py-4 transition">
+          <summary class="flex items-center justify-between gap-8 cursor-pointer list-none marker:hidden">
+            <span class="font-display font-semibold text-[17px] sm:text-[18px] leading-[1.2] text-[#141414]">How much does a typical design project cost?</span>
+            <span class="shrink-0 w-[26px] h-[26px] flex items-center justify-center text-[#141414] text-[22px] leading-none">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">&minus;</span>
+            </span>
+          </summary>
+          <p class="text-[#4B4B4B] text-[15px] sm:text-[16px] leading-[1.5] tracking-[-0.03em] mt-4">Most projects range from a few hundred to a few thousand dollars depending on scope, audience size, and turnaround time.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative bg-black overflow-hidden">
+    <img src="assets/img/cta-texture.png" alt="" class="absolute inset-x-0 bottom-0 w-full h-auto opacity-90 pointer-events-none select-none" />
+    <div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 pt-24 pb-32 text-center">
+      <h2 class="font-display font-semibold text-white text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] mb-4">Ready for real feedback?</h2>
+      <p class="text-white/70 text-[16px] sm:text-[18px] leading-relaxed max-w-md mx-auto mb-8">Our core team is dedicated to building the world&rsquo;s most trusted supply of human feedback.</p>
+      <a href="#" class="inline-flex items-center gap-2.5 bg-orange hover:bg-orange-600 transition text-white font-semibold text-[15px] pl-6 pr-2 py-2 rounded-full">
+        Book a Demo
+        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-white/15">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white">
+    <div class="max-w-[1280px] mx-auto bg-white">
+
+      <!-- mosaic card: white 2px frame with 3px gutters between black tiles -->
+      <div class="grid lg:grid-cols-[320px_1fr] gap-[3px] border-2 border-white p-[3px]">
+        <!-- left sidebar -->
+        <div class="flex flex-col justify-between gap-16 p-10 lg:p-12 bg-black rounded-[5px]">
+          <img src="assets/img/footer-logo.svg" alt="The Human Review" class="h-8 w-auto" />
+          <div>
+            <p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4">Stay Connected</p>
+            <ul class="space-y-2.5 text-[15px] text-white">
+              <li><a href="#" class="hover:text-orange transition">Instagram</a></li>
+              <li><a href="#" class="hover:text-orange transition">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- right column -->
+        <div class="flex flex-col gap-[3px]">
+          <div class="bg-black rounded-[5px] p-10 lg:p-12 flex flex-col sm:flex-row sm:items-center gap-8">
+            <div class="flex-1">
+              <p class="text-[16px] text-white mb-6">Stay up to date with all things 3rdUp</p>
+              <form class="flex flex-col sm:flex-row gap-[30px]" onsubmit="return false;">
+                <div class="w-full sm:w-1/2">
+                  <input type="text" placeholder="First name*" class="w-full bg-transparent border-b border-white/30 py-2 text-[16px] text-white placeholder-white/40 focus:outline-none focus:border-orange" />
+                </div>
+                <div class="w-full sm:w-1/2">
+                  <input type="email" placeholder="Email*" class="w-full bg-transparent border-b border-white/30 py-2 text-[16px] text-white placeholder-white/40 focus:outline-none focus:border-orange" />
+                </div>
+              </form>
+            </div>
+            <button type="button" aria-label="Subscribe" class="shrink-0 self-center text-white hover:text-orange transition">
+              <svg width="24" height="24" viewBox="0 0 16 16" fill="none"><path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+
+          <div class="bg-black rounded-[5px] grid grid-cols-2 sm:grid-cols-4 gap-8 p-10 lg:p-12">
+            <div>
+              <p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4">More Info</p>
+              <ul class="space-y-2.5 text-[15px] text-white">
+                <li><a href="#" class="hover:text-orange transition">Process</a></li>
+                <li><a href="#" class="hover:text-orange transition">Team</a></li>
+                <li><a href="#" class="hover:text-orange transition">Offerings</a></li>
+                <li><a href="#" class="hover:text-orange transition">3rdUp AI</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4">Say Hello</p>
+              <ul class="space-y-2.5 text-[15px] text-white">
+                <li><a href="mailto:hello@3rdup.com" class="hover:text-orange transition">hello@3rdup.com</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4">Free Downloads</p>
+              <ul class="space-y-2.5 text-[15px] text-white">
+                <li><a href="#" class="hover:text-orange transition">Year Marketing Calender</a></li>
+                <li><a href="#" class="hover:text-orange transition">Phone Sales Course</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4">Try Free Demo</p>
+              <a href="#" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white/10 text-white text-[14px] font-bold hover:bg-white/15 transition">
+                Book a Call
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-black rounded-[5px] mx-[5px] mt-[-1px] mb-[3px] px-10 py-3 flex flex-col sm:relative sm:flex-row sm:items-center gap-2 text-[11px] font-semibold tracking-[0.08em] text-white uppercase">
+        <p>Terms and Privacy</p>
+        <p class="sm:absolute sm:left-1/2 sm:-translate-x-1/2">Copyright 3rd-up System 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+
+      function closeMenu() {
+        menu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+
+      function toggleMenu() {
+        const isOpen = !menu.classList.contains('hidden');
+        menu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      }
+
+      btn.addEventListener('click', toggleMenu);
+      menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) closeMenu();
+      });
+    })();
+
+    // Contact form tabs (General Enquiry / Support & Help)
+    (function () {
+      const tabs = document.querySelectorAll('.contact-tab');
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach((t) => {
+            t.setAttribute('aria-selected', 'false');
+            t.classList.remove('bg-white', 'shadow-[0px_1px_2px_rgba(17,24,38,0.05)]', 'text-orange');
+            t.classList.add('text-[#6C717B]');
+          });
+          tab.setAttribute('aria-selected', 'true');
+          tab.classList.add('bg-white', 'shadow-[0px_1px_2px_rgba(17,24,38,0.05)]', 'text-orange');
+          tab.classList.remove('text-[#6C717B]');
+        });
+      });
+    })();
+
+    // "What help do you need" multi-select pills
+    (function () {
+      document.querySelectorAll('.help-pill').forEach((pill) => {
+        pill.addEventListener('click', () => {
+          pill.classList.toggle('is-active');
+          const active = pill.classList.contains('is-active');
+          pill.classList.toggle('font-semibold', active);
+          pill.classList.toggle('font-medium', !active);
+          pill.classList.toggle('text-[#131821]', active);
+          pill.classList.toggle('text-[#64748B]', !active);
+          let check = pill.querySelector('svg');
+          if (active && !check) {
+            pill.insertAdjacentHTML('beforeend', '<svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 10.5L8.5 14L15 6" stroke="#FF6D18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+          } else if (!active && check) {
+            check.remove();
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

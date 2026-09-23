@@ -181,35 +181,41 @@ class Human_Review_Team_Widget extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		?>
-		<section class="bg-white">
-			<div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-20 lg:py-24">
-				<div class="text-center max-w-xl mx-auto mb-14">
+		<section class="bg-[#F9FAFB]">
+			<div class="max-w-[1280px] mx-auto px-6 py-20 lg:py-[100px] lg:px-[104px]">
+				<div class="text-center max-w-2xl mx-auto mb-16">
 					<h2 class="font-display font-semibold text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] text-[#0F172A] mb-4"><?php echo esc_html( $settings['heading'] ); ?></h2>
-					<p class="text-ink/55 text-[16px] leading-relaxed"><?php echo esc_html( $settings['subheading'] ); ?></p>
+					<p class="text-[#0F172A] text-[18px] leading-[28px]"><?php echo esc_html( $settings['subheading'] ); ?></p>
 				</div>
 
-				<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-					<?php foreach ( $settings['members'] as $member ) : ?>
-						<div>
+				<div class="flex flex-col gap-3 mb-5">
+					<div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+						<?php foreach ( $settings['members'] as $member ) : ?>
 							<?php if ( ! empty( $member['photo']['url'] ) ) : ?>
-								<img src="<?php echo esc_url( $member['photo']['url'] ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" class="w-full aspect-[3/4] object-cover rounded-2xl mb-4" />
+								<img src="<?php echo esc_url( $member['photo']['url'] ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" class="w-full aspect-[293/380] object-cover rounded-2xl border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)]" />
 							<?php endif; ?>
-							<h3 class="font-display font-bold text-[16px] text-ink"><?php echo esc_html( $member['name'] ); ?></h3>
-							<p class="text-ink/50 text-[13.5px]"><?php echo esc_html( $member['role'] ); ?></p>
-						</div>
-					<?php endforeach; ?>
+						<?php endforeach; ?>
+					</div>
+					<div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+						<?php foreach ( $settings['members'] as $member ) : ?>
+							<div class="bg-white border border-[#F3F4F6] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-2xl px-6 py-5">
+								<h3 class="font-display font-semibold text-[22px] leading-[25px] text-[#0F172A] mb-2.5"><?php echo esc_html( $member['name'] ); ?></h3>
+								<p class="text-[#6B7280] text-[16px] leading-[26px]"><?php echo esc_html( $member['role'] ); ?></p>
+							</div>
+						<?php endforeach; ?>
+					</div>
 				</div>
 
-				<div class="bg-ink rounded-3xl px-8 sm:px-12 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-					<div class="max-w-md">
-						<h3 class="font-display font-bold text-white text-[19px] mb-2"><?php echo esc_html( $settings['verify_heading'] ); ?></h3>
-						<p class="text-white/50 text-[14px] leading-relaxed"><?php echo esc_html( $settings['verify_text'] ); ?></p>
+				<div class="bg-black border border-[#0F172A] rounded-2xl p-8 sm:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+					<div class="max-w-[661px] flex flex-col gap-4">
+						<h3 class="font-display font-semibold text-white text-[24px] sm:text-[26px] leading-[32px]"><?php echo esc_html( $settings['verify_heading'] ); ?></h3>
+						<p class="text-[#9FABC7] text-[16px] leading-[26px]"><?php echo esc_html( $settings['verify_text'] ); ?></p>
 					</div>
-					<div class="flex items-center gap-10 shrink-0">
+					<div class="flex items-center gap-4 sm:gap-[15px] shrink-0">
 						<?php foreach ( $settings['stats'] as $stat ) : ?>
-							<div>
-								<p class="font-display font-extrabold text-orange text-[34px] leading-none mb-1"><?php echo esc_html( $stat['value'] ); ?></p>
-								<p class="text-white/40 text-[11px] tracking-[0.1em] uppercase"><?php echo esc_html( $stat['label'] ); ?></p>
+							<div class="flex flex-col gap-2">
+								<p class="font-display font-medium text-orange text-[48px] leading-[48px]"><?php echo esc_html( $stat['value'] ); ?></p>
+								<p class="text-white text-[14px] leading-[28px] uppercase"><?php echo esc_html( $stat['label'] ); ?></p>
 							</div>
 						<?php endforeach; ?>
 					</div>

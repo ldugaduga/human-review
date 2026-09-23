@@ -120,14 +120,14 @@ class Human_Review_Unfiltered_Truth_Widget extends Widget_Base {
 			<div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-20 lg:py-24 grid lg:grid-cols-2 gap-16 items-center">
 				<div>
 					<h2 class="font-display font-semibold text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] text-[#0F172A] mb-6"><?php echo esc_html( $settings['heading'] ); ?></h2>
-					<p class="text-ink/60 text-[15.5px] leading-relaxed max-w-md mb-8"><?php echo esc_html( $settings['subcopy'] ); ?></p>
+					<p class="text-[#0F172A] text-[18px] sm:text-[20px] leading-[26px] max-w-md mb-8"><?php echo esc_html( $settings['subcopy'] ); ?></p>
 					<ul class="space-y-4">
 						<?php foreach ( $settings['checklist'] as $item ) : ?>
 							<li class="flex items-center gap-3">
 								<span class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center shrink-0">
 									<svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 								</span>
-								<span class="text-ink text-[15px] font-medium"><?php echo esc_html( $item['text'] ); ?></span>
+								<span class="text-[#0F172A] text-[18px] font-medium"><?php echo esc_html( $item['text'] ); ?></span>
 							</li>
 						<?php endforeach; ?>
 					</ul>

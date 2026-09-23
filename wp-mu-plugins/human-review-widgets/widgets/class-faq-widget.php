@@ -43,6 +43,38 @@ class Human_Review_Faq_Widget extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
+			'section_background',
+			array( 'label' => __( 'Section Background', 'human-review' ) )
+		);
+
+		$this->add_control(
+			'background_type',
+			array(
+				'label'   => __( 'Background Type', 'human-review' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'texture',
+				'options' => array(
+					'texture' => __( 'Textured', 'human-review' ),
+					'color'   => __( 'Custom Color', 'human-review' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'background_color',
+			array(
+				'label'     => __( 'Background Color', 'human-review' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#F3F4F9',
+				'condition' => array(
+					'background_type' => 'color',
+				),
+			)
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'section_items',
 			array( 'label' => __( 'Questions', 'human-review' ) )
 		);
@@ -117,24 +149,40 @@ class Human_Review_Faq_Widget extends Widget_Base {
 	}
 
 	protected function render() {
-		$settings = $this->get_settings_for_display();
-		?>
-		<section class="bg-surface texture-bg">
-			<div class="max-w-[820px] mx-auto px-6 lg:px-10 py-20 lg:py-24">
-				<h2 class="font-display font-semibold text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] text-[#0F172A] text-center mb-12"><?php echo esc_html( $settings['heading'] ); ?></h2>
+		$settings        = $this->get_settings_for_display();
+		$background_type = ! empty( $settings['background_type'] ) ? $settings['background_type'] : 'texture';
 
-				<div class="space-y-3">
+		if ( 'color' === $background_type ) {
+			$bg_color      = ! empty( $settings['background_color'] ) ? $settings['background_color'] : '#F3F4F9';
+			$section_class = '';
+			$section_style = 'background-color: ' . $bg_color . ';';
+		} else {
+			$section_class = 'bg-[#F9FAFB]';
+			$section_style = '';
+		}
+		?>
+		<section class="<?php echo esc_attr( $section_class ); ?>"<?php echo $section_style ? ' style="' . esc_attr( $section_style ) . '"' : ''; ?>>
+			<div class="max-w-[1092px] mx-auto px-6 lg:px-10 py-20 lg:py-24 flex flex-col items-center gap-16">
+				<div class="flex flex-col items-center gap-5 max-w-[500px] text-center">
+					<h2 class="font-display font-semibold text-[36px] sm:text-[44px] lg:text-[56px] leading-[1.15] tracking-[-0.03em] text-[#242424]"><?php echo esc_html( $settings['heading'] ); ?></h2>
+				</div>
+
+				<div class="w-full flex flex-col gap-3">
 					<?php foreach ( $settings['items'] as $item ) : ?>
-						<?php $is_open = ( 'yes' === $item['open_by_default'] ); ?>
-						<details <?php echo $is_open ? 'open' : ''; ?> class="group bg-white open:bg-orange/10 border border-ink/8 open:border-orange/20 rounded-2xl px-6 py-5 transition">
-							<summary class="flex items-center justify-between cursor-pointer list-none marker:hidden">
-								<span class="font-display font-semibold text-[15.5px] text-ink group-open:text-orange"><?php echo esc_html( $item['question'] ); ?></span>
-								<span class="shrink-0 ml-4 text-ink/60 group-open:text-orange text-[20px] leading-none">
+						<?php
+						$is_open   = ( 'yes' === $item['open_by_default'] );
+						$item_cls  = $is_open ? 'bg-[#FFE4D5] rounded-xl px-5 py-5' : 'bg-[#FCFCFC] border border-[#EBEAEA] rounded-xl px-5 py-4';
+						$text_cls  = $is_open ? 'text-orange' : 'text-[#141414]';
+						?>
+						<details <?php echo $is_open ? 'open' : ''; ?> class="group <?php echo esc_attr( $item_cls ); ?> transition">
+							<summary class="flex items-center justify-between gap-8 cursor-pointer list-none marker:hidden">
+								<span class="font-display font-semibold text-[17px] sm:text-[18px] leading-[1.2] <?php echo esc_attr( $text_cls ); ?>"><?php echo esc_html( $item['question'] ); ?></span>
+								<span class="shrink-0 w-[26px] h-[26px] flex items-center justify-center <?php echo esc_attr( $text_cls ); ?> text-[22px] leading-none">
 									<span class="group-open:hidden">+</span>
 									<span class="hidden group-open:inline">&minus;</span>
 								</span>
 							</summary>
-							<p class="text-ink/60 text-[14.5px] leading-relaxed mt-3"><?php echo esc_html( $item['answer'] ); ?></p>
+							<p class="text-[#4B4B4B] text-[15px] sm:text-[16px] leading-[1.5] tracking-[-0.03em] mt-4"><?php echo esc_html( $item['answer'] ); ?></p>
 						</details>
 					<?php endforeach; ?>
 				</div>

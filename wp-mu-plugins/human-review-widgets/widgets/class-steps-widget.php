@@ -109,13 +109,11 @@ class Human_Review_Steps_Widget extends Widget_Base {
 		?>
 		<div class="<?php echo esc_attr( $row_start_class ); ?> flex items-center justify-between gap-[15.3px] max-w-[1032px] min-h-[208px] bg-white border border-[#F3F4F6] rounded-2xl p-9" style="box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -4px 24px rgba(0,0,0,0.03);">
 			<div>
-				<h3 class="font-display font-bold text-[19px] text-ink mb-2"><?php echo esc_html( $step['title'] ); ?></h3>
-				<p class="text-ink/55 text-[14.5px] leading-relaxed max-w-lg"><?php echo esc_html( $step['description'] ); ?></p>
+				<h3 class="font-display font-semibold text-[24px] sm:text-[28px] leading-[34px] text-[#0F172A] mb-4"><?php echo esc_html( $step['title'] ); ?></h3>
+				<p class="text-[#6B7280] text-[16px] sm:text-[18px] leading-[28px] max-w-lg"><?php echo esc_html( $step['description'] ); ?></p>
 			</div>
 			<?php if ( $icon_url ) : ?>
-				<div class="shrink-0 w-16 h-16 rounded-full bg-ink/[0.04] flex items-center justify-center">
-					<img src="<?php echo esc_url( $icon_url ); ?>" alt="" class="w-9 h-9" />
-				</div>
+				<img src="<?php echo esc_url( $icon_url ); ?>" alt="" class="shrink-0 w-16 h-16 sm:w-[100px] sm:h-[100px]" />
 			<?php endif; ?>
 		</div>
 		<?php

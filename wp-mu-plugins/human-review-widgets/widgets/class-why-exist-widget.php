@@ -92,17 +92,17 @@ class Human_Review_Why_Exist_Widget extends Widget_Base {
 		$image_url = ! empty( $settings['image']['url'] ) ? $settings['image']['url'] : HUMAN_REVIEW_WIDGETS_URL . '/assets/img/why-exist.svg';
 		?>
 		<section class="bg-white">
-			<div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-20 lg:py-24 grid lg:grid-cols-2 gap-16 items-center">
-				<div>
-					<h2 class="font-display font-semibold text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] text-[#0F172A] mb-6"><?php echo esc_html( $settings['heading'] ); ?></h2>
-					<div class="space-y-4 text-ink/60 text-[15.5px] leading-relaxed mb-8">
+			<div class="max-w-[1280px] mx-auto px-6 py-20 lg:py-[120px] lg:px-[104px] flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-[90px]">
+				<div class="flex-1 flex flex-col items-start gap-8 max-w-[571px]">
+					<h2 class="font-display font-semibold text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] text-[#0F172A]"><?php echo esc_html( $settings['heading'] ); ?></h2>
+					<div class="text-[#0F172A] text-[17px] sm:text-[18px] leading-[26px] space-y-4">
 						<?php echo wp_kses_post( $settings['body'] ); ?>
 					</div>
-					<a href="<?php echo esc_url( $settings['button_link']['url'] ); ?>" class="inline-flex items-center px-6 py-3 rounded-full bg-[#0F172A] border border-[#0F172A] shadow-[0px_10px_26px_-10px_rgba(15,23,42,0.5)] text-white text-[15px] font-semibold hover:bg-[#0F172A]/90 transition" style="box-shadow: 0px 10px 26px -10px rgba(15, 23, 42, 0.5);"><?php echo esc_html( $settings['button_text'] ); ?></a>
+					<a href="<?php echo esc_url( $settings['button_link']['url'] ); ?>" class="inline-flex items-center px-7 py-[15px] rounded-full bg-[#0F172A] border border-[#0F172A] shadow-[0px_10px_26px_-10px_rgba(15,23,42,0.5)] text-white text-[16px] font-bold hover:bg-[#0F172A]/90 transition" style="box-shadow: 0px 10px 26px -10px rgba(15, 23, 42, 0.5);"><?php echo esc_html( $settings['button_text'] ); ?></a>
 				</div>
 
-				<div class="flex justify-center">
-					<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $settings['image_alt'] ); ?>" class="w-full max-w-[500px] h-auto" />
+				<div class="flex justify-center lg:justify-end w-full lg:w-auto shrink-0">
+					<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $settings['image_alt'] ); ?>" class="w-full max-w-[571px] h-auto" />
 				</div>
 			</div>
 		</section>

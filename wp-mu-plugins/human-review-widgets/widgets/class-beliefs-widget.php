@@ -117,21 +117,21 @@ class Human_Review_Beliefs_Widget extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		?>
-		<section class="bg-surface">
-			<div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-20 lg:py-24">
+		<section class="bg-[#F9FAFB]">
+			<div class="max-w-[1280px] mx-auto px-6 py-20 lg:py-[100px] lg:px-[104px]">
 				<div class="text-center max-w-xl mx-auto mb-12">
 					<h2 class="font-display font-semibold text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] text-[#0F172A] mb-4"><?php echo esc_html( $settings['heading'] ); ?></h2>
-					<p class="text-ink/55 text-[16px]"><?php echo esc_html( $settings['subheading'] ); ?></p>
+					<p class="text-[#0F172A] text-[18px] leading-[28px]"><?php echo esc_html( $settings['subheading'] ); ?></p>
 				</div>
 
 				<div class="bg-white rounded-3xl border border-ink/10 grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-ink/10 overflow-hidden">
 					<?php foreach ( $settings['cards'] as $card ) : ?>
-						<div class="p-10">
+						<div class="p-9">
 							<?php if ( ! empty( $card['icon']['url'] ) ) : ?>
-								<img src="<?php echo esc_url( $card['icon']['url'] ); ?>" alt="" class="w-16 h-16 mb-6" />
+								<img src="<?php echo esc_url( $card['icon']['url'] ); ?>" alt="" class="w-16 h-16 mb-9" />
 							<?php endif; ?>
-							<h3 class="font-display font-bold text-[18px] text-ink mb-2"><?php echo esc_html( $card['title'] ); ?></h3>
-							<p class="text-ink/55 text-[14.5px] leading-relaxed"><?php echo esc_html( $card['description'] ); ?></p>
+							<h3 class="font-display font-semibold text-[24px] leading-[32px] text-[#0F172A] mb-4"><?php echo esc_html( $card['title'] ); ?></h3>
+							<p class="text-[#6B7280] text-[18px] leading-[28px]"><?php echo esc_html( $card['description'] ); ?></p>
 						</div>
 					<?php endforeach; ?>
 				</div>

@@ -249,7 +249,7 @@ class Human_Review_Footer_Widget extends Widget_Base {
 	private function render_link_list( $items ) {
 		foreach ( $items as $item ) {
 			printf(
-				'<li><a href="%1$s" class="hover:text-white transition">%2$s</a></li>',
+				'<li><a href="%1$s" class="hover:text-orange transition">%2$s</a></li>',
 				esc_url( $item['link']['url'] ),
 				esc_html( $item['label'] )
 			);
@@ -266,7 +266,7 @@ class Human_Review_Footer_Widget extends Widget_Base {
 			<img src="<?php echo esc_url( $texture_url ); ?>" alt="" class="absolute inset-x-0 bottom-0 w-full h-auto opacity-90 pointer-events-none select-none" />
 			<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 pt-24 pb-32 text-center">
 				<h2 class="font-display font-semibold text-white text-[32px] leading-[38px] sm:text-[40px] sm:leading-[46px] lg:text-[56px] lg:leading-[64px] mb-4"><?php echo esc_html( $settings['cta_banner_heading'] ); ?></h2>
-				<p class="text-white/50 text-[15.5px] leading-relaxed max-w-md mx-auto mb-8"><?php echo esc_html( $settings['cta_banner_text'] ); ?></p>
+				<p class="text-white/70 text-[16px] sm:text-[18px] leading-relaxed max-w-md mx-auto mb-8"><?php echo esc_html( $settings['cta_banner_text'] ); ?></p>
 				<a href="<?php echo esc_url( $settings['cta_banner_button_link']['url'] ); ?>" class="inline-flex items-center gap-2.5 bg-orange hover:bg-orange-600 transition text-white font-semibold text-[15px] pl-6 pr-2 py-2 rounded-full">
 					<?php echo esc_html( $settings['cta_banner_button_text'] ); ?>
 					<span class="flex items-center justify-center w-8 h-8 rounded-full bg-white/15">
@@ -283,8 +283,8 @@ class Human_Review_Footer_Widget extends Widget_Base {
 					<div class="flex flex-col justify-between gap-16 p-10 lg:p-12 bg-black rounded-[5px]">
 						<img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="h-[12.8px] w-auto md:w-[230px] md:h-auto lg:w-auto lg:h-8" />
 						<div>
-							<p class="text-[11px] tracking-[0.12em] uppercase text-white/40 mb-4 font-medium">Stay Connected</p>
-							<ul class="space-y-2.5 text-[15px] text-white/70">
+							<p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4">Stay Connected</p>
+							<ul class="space-y-2.5 text-[15px] text-white">
 								<?php $this->render_link_list( $settings['socials'] ); ?>
 							</ul>
 						</div>
@@ -293,8 +293,8 @@ class Human_Review_Footer_Widget extends Widget_Base {
 					<div class="flex flex-col gap-[3px]">
 						<div class="bg-black rounded-[5px] p-10 lg:p-12 flex flex-col sm:flex-row sm:items-center gap-8">
 							<div class="flex-1">
-								<p class="text-[16px] text-white/80 mb-6"><?php echo esc_html( $settings['newsletter_text'] ); ?></p>
-								<form class="flex flex-col sm:flex-row gap-[30px]">
+								<p class="text-[16px] text-white mb-6"><?php echo esc_html( $settings['newsletter_text'] ); ?></p>
+								<form class="flex flex-col sm:flex-row gap-[30px]" onsubmit="return false;">
 									<div class="w-full sm:w-1/2">
 										<input type="text" placeholder="First name*" class="w-full bg-transparent border-b border-white/30 py-2 text-[16px] text-white placeholder-white/40 focus:outline-none focus:border-orange" />
 									</div>
@@ -303,33 +303,33 @@ class Human_Review_Footer_Widget extends Widget_Base {
 									</div>
 								</form>
 							</div>
-							<button type="button" aria-label="Subscribe" class="shrink-0 self-center text-white/80 hover:text-orange transition">
+							<button type="button" aria-label="Subscribe" class="shrink-0 self-center text-white hover:text-orange transition">
 								<svg width="24" height="24" viewBox="0 0 16 16" fill="none"><path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
 							</button>
 						</div>
 
 						<div class="bg-black rounded-[5px] grid grid-cols-2 sm:grid-cols-4 gap-8 p-10 lg:p-12">
 							<div>
-								<p class="text-[11px] tracking-[0.12em] uppercase text-white/40 mb-4 font-medium"><?php echo esc_html( $settings['col1_title'] ); ?></p>
-								<ul class="space-y-2.5 text-[15px] text-white/70">
+								<p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4"><?php echo esc_html( $settings['col1_title'] ); ?></p>
+								<ul class="space-y-2.5 text-[15px] text-white">
 									<?php $this->render_link_list( $settings['col1_items'] ); ?>
 								</ul>
 							</div>
 							<div>
-								<p class="text-[11px] tracking-[0.12em] uppercase text-white/40 mb-4 font-medium"><?php echo esc_html( $settings['col2_title'] ); ?></p>
-								<ul class="space-y-2.5 text-[15px] text-white/70">
+								<p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4"><?php echo esc_html( $settings['col2_title'] ); ?></p>
+								<ul class="space-y-2.5 text-[15px] text-white">
 									<?php $this->render_link_list( $settings['col2_items'] ); ?>
 								</ul>
 							</div>
 							<div>
-								<p class="text-[11px] tracking-[0.12em] uppercase text-white/40 mb-4 font-medium"><?php echo esc_html( $settings['col3_title'] ); ?></p>
-								<ul class="space-y-2.5 text-[15px] text-white/70">
+								<p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4"><?php echo esc_html( $settings['col3_title'] ); ?></p>
+								<ul class="space-y-2.5 text-[15px] text-white">
 									<?php $this->render_link_list( $settings['col3_items'] ); ?>
 								</ul>
 							</div>
 							<div>
-								<p class="text-[11px] tracking-[0.12em] uppercase text-white/40 mb-4 font-medium"><?php echo esc_html( $settings['cta_title'] ); ?></p>
-								<a href="<?php echo esc_url( $settings['cta_link']['url'] ); ?>" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white/10 text-white text-[14px] font-semibold hover:bg-white/15 transition">
+								<p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4"><?php echo esc_html( $settings['cta_title'] ); ?></p>
+								<a href="<?php echo esc_url( $settings['cta_link']['url'] ); ?>" class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white/10 text-white text-[14px] font-bold hover:bg-white/15 transition">
 									<?php echo esc_html( $settings['cta_text'] ); ?>
 									<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 								</a>
@@ -338,7 +338,7 @@ class Human_Review_Footer_Widget extends Widget_Base {
 					</div>
 				</div>
 
-				<div class="bg-black rounded-[5px] mx-[5px] mt-[-1px] mb-[3px] px-10 py-3 flex flex-col sm:relative sm:flex-row sm:items-center gap-2 text-[11px] tracking-[0.08em] text-white/40 uppercase font-medium">
+				<div class="bg-black rounded-[5px] mx-[5px] mt-[-1px] mb-[3px] px-10 py-3 flex flex-col sm:relative sm:flex-row sm:items-center gap-2 text-[11px] font-semibold tracking-[0.08em] text-white uppercase">
 					<p><?php echo esc_html( $settings['terms_text'] ); ?></p>
 					<p class="sm:absolute sm:left-1/2 sm:-translate-x-1/2"><?php echo esc_html( $settings['copyright_text'] ); ?></p>
 				</div>

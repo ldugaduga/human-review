@@ -136,9 +136,9 @@ class Human_Review_Help_Cards_Widget extends Widget_Base {
 								<img src="<?php echo esc_url( $card['image']['url'] ); ?>" alt="<?php echo esc_attr( $card['title'] ); ?>" class="w-full aspect-[16/10] object-cover rounded-[12px]" style="border-radius: 12px;" />
 							<?php endif; ?>
 							<div class="w-full flex flex-col items-start px-[13px] pt-[26px] pb-[22px]">
-								<h3 class="font-display font-bold text-[18px] text-ink mb-2"><?php echo esc_html( $card['title'] ); ?></h3>
-								<p class="text-ink/55 text-[14.5px] leading-relaxed mb-4"><?php echo esc_html( $card['description'] ); ?></p>
-								<a href="<?php echo esc_url( $card['link_url']['url'] ); ?>" class="inline-flex items-center gap-1.5 text-orange text-[14px] font-semibold hover:text-orange-600 transition">
+								<h3 class="font-display font-semibold text-[24px] sm:text-[28px] leading-[36px] tracking-[-0.736px] text-[#181D27] mb-2.5"><?php echo esc_html( $card['title'] ); ?></h3>
+								<p class="text-[#535862] text-[16px] leading-[25px] mb-5"><?php echo esc_html( $card['description'] ); ?></p>
+								<a href="<?php echo esc_url( $card['link_url']['url'] ); ?>" class="inline-flex items-center gap-1.5 text-orange text-[16px] font-semibold hover:text-orange-600 transition">
 									<?php echo esc_html( $card['link_text'] ); ?>
 									<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
 								</a>
