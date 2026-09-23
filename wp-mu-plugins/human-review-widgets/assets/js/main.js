@@ -63,8 +63,23 @@
     counters.forEach((el) => observer.observe(el));
   }
 
+  function initContactTabs(section) {
+    const tabs = section.querySelectorAll('.hr-contact-tab');
+    const panels = section.querySelectorAll('.hr-contact-panel');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+        panels.forEach((panel) => {
+          panel.hidden = panel.dataset.panel !== tab.dataset.tab;
+        });
+      });
+    });
+  }
+
   function init() {
     document.querySelectorAll('.hr-header').forEach(initHeader);
+    document.querySelectorAll('.hr-contact').forEach(initContactTabs);
     initCounters();
   }
 

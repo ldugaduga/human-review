@@ -1,0 +1,107 @@
+{
+  "version": "0.4",
+  "title": "HR Contact Form - General Enquiry",
+  "type": "container",
+  "content": [
+    {
+      "id": "c4f1a01",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+        "margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }
+      },
+      "elements": [
+        {
+          "id": "c4f1a02",
+          "elType": "widget",
+          "widgetType": "form",
+          "isInner": false,
+          "settings": {
+            "form_name": "Contact - General Enquiry",
+            "form_fields": [
+              {
+                "_id": "f0a1b01",
+                "custom_id": "workspace",
+                "field_type": "text",
+                "field_label": "Workspace name",
+                "placeholder": "Nordic Studio",
+                "width": "50",
+                "width_mobile": "100"
+              },
+              {
+                "_id": "f0a1b02",
+                "custom_id": "email",
+                "field_type": "email",
+                "field_label": "Work Email",
+                "placeholder": "alex@techflow.io",
+                "required": "true",
+                "width": "50",
+                "width_mobile": "100"
+              },
+              {
+                "_id": "f0a1b03",
+                "custom_id": "project",
+                "field_type": "textarea",
+                "field_label": "What's the #1 thing we can help with?",
+                "placeholder": "Tell us about your project, goals, or the issues you're facing...",
+                "required": "true",
+                "rows": 3,
+                "width": "100"
+              },
+              {
+                "_id": "f0a1b04",
+                "custom_id": "source",
+                "field_type": "select",
+                "field_label": "How did you hear about us? (Optional)",
+                "field_options": "Select an option|\nSearch engine\nSocial media\nReferral\nOther",
+                "width": "100"
+              },
+              {
+                "_id": "f0a1b05",
+                "custom_id": "help",
+                "field_type": "checkbox",
+                "field_label": "What help do you need? (Pick all that apply)",
+                "field_options": "Customer Reviews\nProduct Research\nUX Audit\nBulk Pricing\nTechnical Support\nOther",
+                "inline_list": "elementor-subgroup-inline",
+                "width": "100"
+              },
+              {
+                "_id": "f0a1b06",
+                "custom_id": "hp",
+                "field_type": "honeypot",
+                "field_label": "",
+                "width": "100"
+              }
+            ],
+            "show_labels": "true",
+            "mark_required": "yes",
+            "column_gap": { "unit": "px", "size": 24, "sizes": [] },
+            "row_gap": { "unit": "px", "size": 32, "sizes": [] },
+            "label_spacing": { "unit": "px", "size": 0, "sizes": [] },
+            "button_text": "Submit Enquiry",
+            "button_size": "md",
+            "button_width": "100",
+            "button_align": "stretch",
+            "submit_actions": [ "email" ],
+            "email_to": "",
+            "email_subject": "New enquiry from The Human Review contact form",
+            "email_content": "[all-fields]",
+            "email_from_name": "The Human Review",
+            "email_reply_to": "email",
+            "email_content_type": "html",
+            "success_message": "Thanks! An expert will be in touch within 24 hours.",
+            "error_message": "Something went wrong. Please try again.",
+            "required_field_message": "This field is required.",
+            "invalid_message": "Please check the highlighted fields.",
+            "custom_messages": "yes"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ],
+  "page_settings": []
+}

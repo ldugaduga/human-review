@@ -14,6 +14,7 @@ module.exports = {
       fontFamily: {
         display: ['"Onest"', 'sans-serif'],
         sans: ['"Onest"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       screens: {
         // Dedicated breakpoint for the header's desktop-nav/hamburger

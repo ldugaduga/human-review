@@ -21,7 +21,7 @@ define( 'HUMAN_REVIEW_WIDGETS_URL', plugins_url( '', __FILE__ ) );
 function human_review_widgets_assets() {
 	wp_enqueue_style(
 		'human-review-fonts',
-		'https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap',
+		'https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap',
 		array(),
 		null
 	);
@@ -73,6 +73,7 @@ function human_review_widgets_register( $widgets_manager ) {
 	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-help-cards-widget.php';
 	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-unfiltered-truth-widget.php';
 	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-faq-widget.php';
+	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-contact-widget.php';
 
 	$widgets_manager->register( new \Human_Review_Header_Widget() );
 	$widgets_manager->register( new \Human_Review_Footer_Widget() );
@@ -85,5 +86,6 @@ function human_review_widgets_register( $widgets_manager ) {
 	$widgets_manager->register( new \Human_Review_Help_Cards_Widget() );
 	$widgets_manager->register( new \Human_Review_Unfiltered_Truth_Widget() );
 	$widgets_manager->register( new \Human_Review_Faq_Widget() );
+	$widgets_manager->register( new \Human_Review_Contact_Widget() );
 }
 add_action( 'elementor/widgets/register', 'human_review_widgets_register' );

@@ -15,3 +15,145 @@ h1, h2, h3, .font-display {
   background-size: cover;
   background-position: center;
 }
+
+/* Contact widget: "Trusted by" logo marquee (track holds two copies, so -50% loops seamlessly) */
+@keyframes hr-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.hr-marquee-track {
+  animation: hr-marquee 28s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hr-marquee-track { animation: none; }
+}
+
+/* Contact widget: tab states (toggled via aria-selected in main.js) */
+.hr-contact-tab {
+  color: #6C717B;
+}
+.hr-contact-tab[aria-selected="true"] {
+  background: #fff;
+  color: #FF6D18;
+  box-shadow: 0px 1px 2px rgba(17, 24, 38, 0.05);
+}
+
+/*
+ * Contact widget: third-party form plugin markup (CF7, WPForms, Gravity
+ * Forms, ...). We can't add classes or inline styles to it, and those
+ * plugins plus Elementor's kit styles ship their own input/button rules,
+ * so the design values are forced with !important.
+ */
+.hr-contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.hr-contact-form label {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #131821 !important;
+}
+.hr-contact-form input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="hidden"]),
+.hr-contact-form textarea,
+.hr-contact-form select {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 12px !important;
+  margin-top: 8px;
+  background: #fff !important;
+  border: 1px solid #E1E3E7 !important;
+  border-radius: 8px !important;
+  box-shadow: 0px 1px 2px rgba(17, 24, 38, 0.06), 0px 1px 3px rgba(17, 24, 38, 0.05) !important;
+  font-family: 'Onest', sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: #131821 !important;
+  transition: border-color 0.15s;
+}
+.hr-contact-form textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+.hr-contact-form input::placeholder,
+.hr-contact-form textarea::placeholder {
+  color: #A8AEB9 !important;
+}
+.hr-contact-form input:focus,
+.hr-contact-form textarea:focus,
+.hr-contact-form select:focus {
+  outline: none !important;
+  border-color: #FF6D18 !important;
+}
+.hr-contact-form input[type="submit"],
+.hr-contact-form button[type="submit"] {
+  width: 100% !important;
+  padding: 15px 28px !important;
+  background: #FF6D18 !important;
+  border: 1px solid #FF853D !important;
+  border-radius: 9999px !important;
+  box-shadow: 0px 10px 26px -10px rgba(255, 109, 24, 0.5) !important;
+  font-family: 'Onest', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+.hr-contact-form input[type="submit"]:hover,
+.hr-contact-form button[type="submit"]:hover {
+  background: #F0610E !important;
+}
+
+/* Contact widget, Elementor Pro Form: orange required mark */
+.hr-contact-form .elementor-mark-required .elementor-field-label:after {
+  color: #FF6D18 !important;
+}
+
+/* Contact widget, Elementor Pro Form: checkbox field rendered as the "help" pills */
+.hr-contact-form .elementor-field-type-checkbox .elementor-field-subgroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+.hr-contact-form .elementor-field-type-checkbox .elementor-field-option {
+  position: relative;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.hr-contact-form .elementor-field-type-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.hr-contact-form .elementor-field-type-checkbox .elementor-field-option label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px !important;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px !important;
+  color: #64748B !important;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.hr-contact-form .elementor-field-type-checkbox .elementor-field-option label:hover {
+  border-color: rgba(255, 109, 24, 0.4);
+}
+.hr-contact-form .elementor-field-type-checkbox input:focus-visible + label {
+  outline: 2px solid #FF6D18;
+  outline-offset: 2px;
+}
+.hr-contact-form .elementor-field-type-checkbox input:checked + label {
+  font-weight: 600 !important;
+  color: #131821 !important;
+}
+.hr-contact-form .elementor-field-type-checkbox input:checked + label:after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 10.5L8.5 14L15 6' stroke='%23FF6D18' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
