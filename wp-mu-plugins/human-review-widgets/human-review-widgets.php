@@ -74,6 +74,11 @@ function human_review_widgets_register( $widgets_manager ) {
 	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-unfiltered-truth-widget.php';
 	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-faq-widget.php';
 	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-contact-widget.php';
+	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-po-hero-widget.php';
+	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-po-steps-widget.php';
+	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-po-jobs-widget.php';
+	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-po-dashboard-widget.php';
+	require_once HUMAN_REVIEW_WIDGETS_DIR . '/widgets/class-po-why-widget.php';
 
 	$widgets_manager->register( new \Human_Review_Header_Widget() );
 	$widgets_manager->register( new \Human_Review_Footer_Widget() );
@@ -87,5 +92,10 @@ function human_review_widgets_register( $widgets_manager ) {
 	$widgets_manager->register( new \Human_Review_Unfiltered_Truth_Widget() );
 	$widgets_manager->register( new \Human_Review_Faq_Widget() );
 	$widgets_manager->register( new \Human_Review_Contact_Widget() );
+	$widgets_manager->register( new \Human_Review_Po_Hero_Widget() );
+	$widgets_manager->register( new \Human_Review_Po_Steps_Widget() );
+	$widgets_manager->register( new \Human_Review_Po_Jobs_Widget() );
+	$widgets_manager->register( new \Human_Review_Po_Dashboard_Widget() );
+	$widgets_manager->register( new \Human_Review_Po_Why_Widget() );
 }
 add_action( 'elementor/widgets/register', 'human_review_widgets_register' );

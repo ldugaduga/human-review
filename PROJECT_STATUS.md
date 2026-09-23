@@ -6,7 +6,7 @@ Last updated: 2026-09-23
 
 Two parallel deliverables built from the same Figma design ("The Human Review" marketing site):
 
-1. **Static HTML/Tailwind prototypes** — `about.html`, `how-it-works.html`, `contact.html` at the repo root. Pixel-reference builds, served directly (no backend), styled with the Tailwind CDN build + `assets/css/main.css`.
+1. **Static HTML/Tailwind prototypes** — `about.html`, `how-it-works.html`, `contact.html`, `product-overview.html` at the repo root. Pixel-reference builds, served directly (no backend), styled with the Tailwind CDN build + `assets/css/main.css`.
 2. **WordPress mu-plugin** — `wp-mu-plugins/human-review-widgets/`, a set of registered Elementor widgets that reproduce the same design sections, built to be manually deployed to the live site at `s1.kanesherwell.com`.
 
 The mu-plugin is the **production deliverable**. The static HTML files are the reference/prototype layer — when a fix lands on the static pages, it generally needs to be ported into the matching widget by hand (they are not code-shared).
@@ -46,6 +46,11 @@ The mu-plugin is the **production deliverable**. The static HTML files are the r
 | `class-unfiltered-truth-widget.php` | How It Works — Unfiltered Truth |
 | `class-faq-widget.php` | FAQ accordion (shared, used on multiple pages) |
 | `class-contact-widget.php` | Contact — hero, "what happens next", testimonial, logo marquee, and form card |
+| `class-po-hero-widget.php` | Product Overview hero + dashboard preview |
+| `class-po-steps-widget.php` | Product Overview — How it works (numbered steps, any count) |
+| `class-po-jobs-widget.php` | Product Overview — Built for two jobs (cards alternate image side) |
+| `class-po-dashboard-widget.php` | Product Overview — Your dashboard (laptop background image) |
+| `class-po-why-widget.php` | Product Overview — Why The Human Review values + Trusted-by logo marquee |
 
 The contact form itself comes from a form plugin: paste its shortcode (CF7, WPForms, Gravity Forms, or `[elementor-template id="…"]`) into the widget's Form settings. A second "Support" shortcode is optional; when set, the General / Support tabs appear and switch between the two forms. An importable Elementor Pro form matching the design lives in `elementor-templates/contact-form-general.json` (its checkbox field renders as the "help" pills). Plugin form fields are styled by `.hr-contact-form` rules in `src/input.css`, which use `!important` because the plugin's markup can't carry inline styles.
 
