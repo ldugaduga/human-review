@@ -71,6 +71,16 @@ h1, h2, h3, .font-display {
   color: #131821 !important;
   transition: border-color 0.15s;
 }
+.hr-contact-form select {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  padding-right: 40px !important;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%2394A3B8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center / 16px 16px !important;
+}
+.hr-contact-form .elementor-select-wrapper:before,
+.hr-contact-form .elementor-select-wrapper .select-caret-down-wrapper {
+  display: none !important;
+}
 .hr-contact-form textarea {
   min-height: 96px;
   resize: vertical;
@@ -96,9 +106,26 @@ h1, h2, h3, .font-display {
   font-family: 'Onest', sans-serif !important;
   font-size: 18px !important;
   font-weight: 700 !important;
+  line-height: 1.5 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
   color: #fff !important;
   cursor: pointer;
   transition: background-color 0.15s;
+}
+/* Arrow after the label, as in contact.html (<input type="submit"> can't hold one) */
+.hr-contact-form button[type="submit"] {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.hr-contact-form button[type="submit"]:after {
+  content: "";
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12' stroke='white' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
 }
 .hr-contact-form input[type="submit"]:hover,
 .hr-contact-form button[type="submit"]:hover {
@@ -129,19 +156,24 @@ h1, h2, h3, .font-display {
   height: 1px;
 }
 .hr-contact-form .elementor-field-type-checkbox .elementor-field-option label {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   gap: 8px;
+  margin: 0 !important;
   padding: 8px 14px !important;
-  background: #fff;
-  border: 1px solid #E2E8F0;
+  background: #fff !important;
+  border: 1px solid #E2E8F0 !important;
   border-radius: 9999px !important;
+  font-family: 'Onest', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
   color: #64748B !important;
   cursor: pointer;
   transition: border-color 0.15s;
 }
 .hr-contact-form .elementor-field-type-checkbox .elementor-field-option label:hover {
-  border-color: rgba(255, 109, 24, 0.4);
+  border-color: rgba(255, 109, 24, 0.4) !important;
 }
 .hr-contact-form .elementor-field-type-checkbox input:focus-visible + label {
   outline: 2px solid #FF6D18;
